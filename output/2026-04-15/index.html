@@ -8,10 +8,10 @@
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0a0a0f; --bg2: #0f0f1a; --card: #13131f;
-      --border: #1e1e35; --border2: #252540;
-      --accent: #7c6aff; --cyan: #00e5ff; --pink: #ff6b9d;
-      --text: #e8e8f0; --muted: #6b6b8a; --muted2: #4a4a6a;
+      --bg: #050a08; --bg2: #0a120d; --card: #0d1a12;
+      --border: #152b1e; --border2: #1e3d2a;
+      --accent: #10b981; --cyan: #34d399; --pink: #f59e0b;
+      --text: #e2f0e8; --muted: #5a8a6e; --muted2: #3a5a48;
       --radius-lg: 12px; --radius-md: 8px; --radius-sm: 5px;
     }
     body {
@@ -20,7 +20,7 @@
       line-height: 1.7; font-size: 14px; -webkit-font-smoothing: antialiased;
     }
     header {
-      background: rgba(10,10,15,0.95); backdrop-filter: blur(16px);
+      background: rgba(5,10,8,0.95); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border); height: 64px;
       display: flex; align-items: center; padding: 0 2rem;
       position: sticky; top: 0; z-index: 200;
@@ -40,12 +40,12 @@
       border: 1px solid var(--border2); color: var(--muted);
       text-decoration: none; transition: all 0.15s;
     }
-    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(124,106,255,0.08); }
+    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(16,185,129,0.08); }
     .brand-mark {
       width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--accent) 0%, #5b4fd4 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #065f46 100%);
       border-radius: 9px; display: flex; align-items: center; justify-content: center;
-      font-size: 17px; box-shadow: 0 0 16px rgba(124,106,255,0.4); flex-shrink: 0;
+      font-size: 17px; box-shadow: 0 0 16px rgba(16,185,129,0.4); flex-shrink: 0;
     }
     .brand-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: 0.3px; }
     .brand-sub  { font-size: 0.62rem; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
@@ -56,7 +56,7 @@
     .header-divider { width: 1px; height: 28px; background: var(--border2); }
     .header-tag {
       font-size: 0.65rem; font-weight: 600; color: var(--cyan);
-      border: 1px solid rgba(0,229,255,0.3); background: rgba(0,229,255,0.06);
+      border: 1px solid rgba(52,211,153,0.3); background: rgba(52,211,153,0.06);
       padding: 3px 10px; border-radius: 20px; letter-spacing: 2px;
     }
     .layout {
@@ -77,7 +77,7 @@
       border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 500;
       color: var(--muted); text-decoration: none; transition: all 0.15s ease; margin-bottom: 2px;
     }
-    .nav-link:hover { background: rgba(124,106,255,0.1); color: var(--accent); }
+    .nav-link:hover { background: rgba(16,185,129,0.1); color: var(--accent); }
     .nav-icon { font-size: 0.9rem; flex-shrink: 0; }
     .main-content { display: flex; flex-direction: column; gap: 1.25rem; }
     .section {
@@ -110,16 +110,16 @@
       border: 1px solid var(--border); border-radius: var(--radius-md);
       padding: 1.1rem 1.2rem; background: var(--bg2);
     }
-    .insight-card.accent-cyan  { background: rgba(0,229,255,0.04);  border-color: rgba(0,229,255,0.2); }
-    .insight-card.accent-pink  { background: rgba(255,107,157,0.04); border-color: rgba(255,107,157,0.2); }
+    .insight-card.accent-cyan { background: rgba(52,211,153,0.04); border-color: rgba(52,211,153,0.2); }
+    .insight-card.accent-pink { background: rgba(245,158,11,0.04);  border-color: rgba(245,158,11,0.2); }
     .insight-label {
       font-size: 0.68rem; font-weight: 700; color: var(--muted);
       margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; letter-spacing: 1px;
     }
     .insight-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .dot-purple { background: var(--accent); box-shadow: 0 0 6px rgba(124,106,255,0.6); }
-    .dot-cyan   { background: var(--cyan);   box-shadow: 0 0 6px rgba(0,229,255,0.6); }
-    .dot-pink   { background: var(--pink);   box-shadow: 0 0 6px rgba(255,107,157,0.6); }
+    .dot-purple { background: var(--accent); box-shadow: 0 0 6px rgba(16,185,129,0.6); }
+    .dot-cyan   { background: var(--cyan);   box-shadow: 0 0 6px rgba(52,211,153,0.6); }
+    .dot-pink   { background: var(--pink);   box-shadow: 0 0 6px rgba(245,158,11,0.6); }
     .insight-text { font-size: 0.83rem; color: var(--muted); line-height: 1.85; }
     details.acc-item > summary { list-style: none; }
     details.acc-item > summary::-webkit-details-marker { display: none; }
@@ -134,17 +134,17 @@
       background: var(--bg2); cursor: pointer; user-select: none;
       -webkit-tap-highlight-color: transparent; transition: background 0.15s; width: 100%;
     }
-    .acc-title:hover { background: rgba(124,106,255,0.06); }
-    details[open] > .acc-title { background: rgba(124,106,255,0.1); border-bottom: 1px solid var(--border); }
+    .acc-title:hover { background: rgba(16,185,129,0.06); }
+    details[open] > .acc-title { background: rgba(16,185,129,0.1); border-bottom: 1px solid var(--border); }
     .acc-index {
       font-size: 0.6rem; font-weight: 700; color: var(--accent);
-      background: rgba(124,106,255,0.12); border: 1px solid rgba(124,106,255,0.25);
+      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25);
       padding: 2px 7px; border-radius: 4px; flex-shrink: 0; min-width: 28px; text-align: center;
       font-family: 'Space Grotesk', monospace; transition: all 0.15s;
     }
     details[open] > .acc-title .acc-index {
       background: var(--accent); color: #fff; border-color: var(--accent);
-      box-shadow: 0 0 8px rgba(124,106,255,0.5);
+      box-shadow: 0 0 8px rgba(16,185,129,0.5);
     }
     .acc-text { flex: 1; font-size: 0.88rem; font-weight: 500; color: var(--text); line-height: 1.5; }
     .acc-arrow {
@@ -160,7 +160,7 @@
     .acc-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .acc-tag {
       display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
-      color: var(--cyan); background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2);
+      color: var(--cyan); background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2);
       padding: 2px 10px; border-radius: 4px; letter-spacing: 0.5px;
     }
     .acc-source-link {
@@ -169,9 +169,7 @@
       border: 1px solid var(--border2); padding: 2px 10px; border-radius: 4px;
       transition: color 0.15s, border-color 0.15s, background 0.15s; letter-spacing: 0.5px;
     }
-    .acc-source-link:hover {
-      color: var(--accent); border-color: rgba(124,106,255,0.4); background: rgba(124,106,255,0.08);
-    }
+    .acc-source-link:hover { color: var(--accent); border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.08); }
     .empty {
       font-size: 0.82rem; color: var(--muted2); padding: 1.5rem 0;
       text-align: center; border: 1px dashed var(--border);
@@ -183,8 +181,8 @@
     }
     .footer-left  { font-size: 0.72rem; color: var(--muted2); letter-spacing: 1px; }
     .footer-right {
-      font-size: 0.65rem; color: var(--accent); background: rgba(124,106,255,0.08);
-      border: 1px solid rgba(124,106,255,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
+      font-size: 0.65rem; color: var(--accent); background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
     }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
@@ -215,7 +213,8 @@
     <div class="brand">
       <a href="../" class="back-btn">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
       <div class="brand-mark">📰</div>
@@ -244,7 +243,7 @@
     <section class="section" id="sec-1">
       <div class="sec-header">
         <div class="sec-header-left"><span class="sec-icon">📋</span><h2>今日要点</h2></div>
-        <span class="sec-badge">今日收录 27 篇</span>
+        <span class="sec-badge">今日收录 45 篇</span>
       </div>
       <div class="sub-block">
         <div class="sub-label">今日重点摘录</div>
@@ -252,142 +251,176 @@
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">01</span>
-          <span class="acc-text">外资机构年内调研沪市公司近1400次，科创板公司尤受青睐</span>
+          <span class="acc-text">A股三大指数午间休盘涨跌不一，沐曦股份涨超13%</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">2026年以来，外资机构对A股上市公司的调研热度持续升温，截至4月10日合计调研沪市公司近1400次。调研重点聚焦于半导体、高端装备、智能硬件、创新药等“硬科技”与新质生产力领域。这反映出国际资本正持续加大对中国核心科技产业的跟踪研究力度，有助于提升相关板块的市场关注度和估值水平。</p>
-          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767465020883714?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">A股三大指数午间休盘涨跌不一，沪指涨0.37%，深成指跌0.25%，创业板指跌0.23%。GPU概念板块领涨，沐曦股份涨超13%，摩尔线程涨超6%，寒武纪涨近5%，创新药板块走强，博瑞医药、海正药业涨停。油气、煤炭板块持续调整，洲际油气、首华燃气跌超4%，市场呈现结构性分化行情，科技与医药板块表现强势。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767533027836673?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">02</span>
-          <span class="acc-text">我国网络视听用户规模10.99亿人，稳居各互联网应用首位</span>
+          <span class="acc-text">软银邀请更多银行加入400亿美元OpenAI贷款项目</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">《中国网络视听发展研究报告（2026）》显示，截至2025年12月，我国网络视听用户规模达10.99亿人，同比净增776万人。网络视听已超越即时通信、网络支付等应用，成为国内渗透范围最广、覆盖人群最多的互联网服务。作为链接千行百业的数字服务载体，其庞大的用户基数为数字经济发展提供了坚实基础和市场空间。</p>
-          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767465576546820?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">软银集团正邀请更多银行加入其400亿美元的贷款计划，以支持对美国科技巨头OpenAI的投资。该交易已进入“试启动”阶段，邀请其他贷款机构作为次级承销商加入，有意向机构需各自承诺出资约50亿美元。此举旨在为大规模AI投资提供资金支持，同时软银也在通过债券市场寻求额外融资，反映了全球资本对前沿AI技术的高度关注。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767505865179650?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">03</span>
-          <span class="acc-text">沪深两市成交额突破1万亿</span>
+          <span class="acc-text">IDC：2026年第一季度全球智能手机出货量下降4.1%</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">4月15日，沪深两市成交额突破1万亿元，较上一交易日同时段放量超过700亿元。市场成交额的显著放大通常反映了投资者参与度的提升和资金活跃度的增强。在当前时点放量，可能预示着市场情绪有所回暖，或为后续行情发展提供一定的流动性支撑。</p>
-          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767464327676423?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">市场研究机构IDC数据显示，2026年第一季度全球智能手机出货量下降4.1%，终结了连续十个季度增长的势头。苹果和三星是前五大品牌中仅有的实现增长的厂商，内存芯片供应紧缺和伊朗战争导致制造商成本上升，中国品牌受影响最大。IDC预计内存芯片供应紧张局面将持续到2027年下半年，行业面临供应链与地缘政治双重压力。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767495355138823?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">04</span>
-          <span class="acc-text">CPO概念延续强势 华盛昌12天6板续创历史新高</span>
+          <span class="acc-text">外资机构年内调研沪市公司近1400次，科创板公司尤受青睐</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">4月15日，CPO（共封装光学）概念板块延续强势表现，个股华盛昌实现12个交易日内第6次涨停，股价续创历史新高。龙头股中际旭创涨幅超过4%，总市值逼近9000亿元，带动剑桥科技、瑞斯康达等相关个股跟涨。CPO作为AI算力基础设施的关键技术，其板块的持续走强反映了市场对AI硬件产业链高景气度的认可和追捧。</p>
-          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767422352982528?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">2026年以来，外资机构对A股上市公司的调研热度持续升温，合计调研沪市公司近1400次，覆盖约190家沪市公司。调研重点聚焦于半导体、高端装备、智能硬件、创新药等领域，科创板公司尤受青睐。这反映出国际资本正持续加大对中国“硬科技”与新质生产力的跟踪研究力度，看好中国科技创新产业的长期发展潜力。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767465020883714?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">05</span>
-          <span class="acc-text">恒大集团、恒大地产及许家印案一审开庭</span>
+          <span class="acc-text">我国网络视听用户规模10.99亿人，稳居各互联网应用首位</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">2026年4月13日至14日，广东省深圳市中级人民法院一审公开开庭审理了恒大集团、恒大地产及许家印涉嫌多项犯罪一案。被告人许家印当庭表示认罪、悔罪。此案涉及非法吸收公众存款、集资诈骗、欺诈发行证券等多项严重指控，其审理进程和最终判决结果将对房地产行业风险处置和市场预期产生深远影响。</p>
-          <div class="acc-footer"><a href="https://36kr.com/p/3767326268392199?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">《中国网络视听发展研究报告（2026）》显示，截至2025年12月，我国网络视听用户规模达10.99亿人，同比净增776万人。网络视听超过即时通信、网络支付、网络购物、搜索引擎，作为多年稳居首位的互联网应用，已是国内渗透范围最广、覆盖人群最多、链接千行百业和万亿大众的数字服务载体。这标志着数字内容消费已成为国民基础性需求，产业生态持续繁荣。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767465576546820?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">06</span>
-          <span class="acc-text">宁德时代、智元、银河通用联合投资，六维力传感器头部企业「蓝点触控」完成超亿元C+轮融资</span>
+          <span class="acc-text">IMF：中东战火将显著压低全球经济增速</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">蓝点触控（北京）科技有限公司近日宣布完成超亿元人民币的C+轮融资，投资方包括宁德时代旗下溥泉资本、智元机器人、银河通用等知名产业资本。蓝点触控聚焦于机器人力传感器领域，其产品在精度、响应频率等关键指标上已达到国际先进水平。此次获得产业链龙头企业的联合投资，凸显了力传感器在人形机器人等前沿领域的关键地位和巨大市场潜力。</p>
-          <div class="acc-footer"><a href="https://36kr.com/p/3766434507440903?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">国际货币基金组织警告，中东战火将显著压低全球经济增速，如果油价在今年剩余时间维持在每桶100美元左右，今年全球经济增速将仅为2.5%，为2020年以来最弱。同时，通胀率将高达5.4%，地缘政治冲突通过能源渠道对全球经济增长与物价稳定构成严重威胁，各国需协调应对以缓解冲击。</p>
+          <div class="acc-footer"><a href="https://www.ftchinese.com/story/001109453" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">07</span>
-          <span class="acc-text">菜鸟发布攀爬机器人ZeeBot，实测智能化存取效率提升一倍</span>
+          <span class="acc-text">国际能源署：全球石油需求大幅下降</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">4月15日，菜鸟集团在美国亚特兰大MODEX 2026国际物流展上发布了首款自研的“攀爬机器人”ZeeBot。该机器人首个智能仓储项目已在广东省交付使用，实测数据显示其使仓库存取效率提升了100%。这项创新技术通过机器人自主攀爬货架存取货物，代表了物流仓储自动化向空间立体化、柔性化发展的新趋势，有望大幅降低人力成本并提升物流效率。</p>
-          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767429503173382?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">国际能源署报告显示，全球石油需求大幅下降，尽管需求下降有助于抵消中东战火造成的部分供应损失，但短期供应缺口十分极端。在国际能源署协调下，各国已释放4亿桶战略石油储备以稳定市场。这反映了地缘政治紧张局势下，全球能源供需格局面临剧烈波动，主要经济体正通过政策工具干预以保障能源安全。</p>
+          <div class="acc-footer"><a href="https://www.ftchinese.com/story/001109452" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">08</span>
+          <span class="acc-text">“英国将是受能源危机影响最大的G7成员国”</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国际货币基金组织将英国今年经济增长预测下调0.5个百分点至0.8%，称高度依赖天然气的英国将受到能源危机的“严重负面影响”。IMF指出，英国经济结构使其在G7国家中对能源价格波动最为敏感，能源供应紧张与价格高企将直接拖累其经济增长前景，并可能加剧国内通胀压力与社会经济挑战。</p>
+          <div class="acc-footer"><a href="https://www.ftchinese.com/story/001109451" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       </div>
       <div class="insight-grid">
         <div class="insight-card">
-          <div class="insight-label"><span class="insight-dot dot-purple"></span>市场概述</div>
-          <div class="insight-text">今日A股市场交投活跃，沪深两市成交额突破万亿元，显示资金参与度提升。CPO、半导体等科技板块表现强势，外资调研聚焦科创板“硬科技”公司。整体市场在科技主线带动下呈现结构性活跃特征，但需关注部分高位题材股波动风险。</div>
+          <div class="insight-label"><span class="insight-dot dot-purple"></span>市场情绪</div>
+          <div class="insight-text">今日市场情绪分化，A股三大指数涨跌不一，科技与医药板块领涨，成交额突破1万亿，显示资金活跃度提升。港股科技股走强，恒生科技指数涨超2%，外资持续调研A股硬科技公司，反映国际资本对中国新质生产力的关注。全球市场受中东局势与能源价格影响，经济增长预期承压。</div>
         </div>
         <div class="insight-card accent-cyan">
-          <div class="insight-label"><span class="insight-dot dot-cyan"></span>政策影响</div>
-          <div class="insight-text">暂无直接影响市场的重大新政策发布。网络视听用户规模报告显示数字经济基础稳固，《明末》团队解散折射文创产业挑战，相关行业政策环境与支持力度仍需观察。</div>
+          <div class="insight-label"><span class="insight-dot dot-cyan"></span>政策信号</div>
+          <div class="insight-text">央行今日开展5亿元7天期逆回购操作，利率持平于1.40%，维持流动性合理充裕。人民币兑美元中间价调升11个基点至6.8582，汇率保持基本稳定。政策层面持续关注科技创新与产业升级，外资调研聚焦半导体、高端装备等领域，与政策导向形成共振。</div>
         </div>
         <div class="insight-card accent-pink">
           <div class="insight-label"><span class="insight-dot dot-pink"></span>风险预警</div>
-          <div class="insight-text">需警惕部分热门概念板块（如CPO）短期涨幅较大后的回调风险。恒大案件审理进入关键阶段，其对房地产行业信用及市场情绪的潜在影响仍需持续关注。国际地缘政治局势（如南海、霍尔木兹海峡）可能对市场风险偏好构成扰动。</div>
+          <div class="insight-text">全球地缘政治风险升温，中东战火推高油价并压制经济增长，IMF警告今年全球经济增速可能降至2.5%。智能手机等行业面临供应链紧张与成本上升压力，内存芯片短缺预计持续至2027年。投资者需警惕能源价格波动、供应链中断及地缘冲突对全球资产价格的冲击。</div>
         </div>
       </div>
     </section>
@@ -395,132 +428,166 @@
     <section class="section" id="sec-2">
       <div class="sec-header">
         <div class="sec-header-left"><span class="sec-icon">🌏</span><h2>时事要闻</h2></div>
-        <span class="sec-badge">7 条</span>
+        <span class="sec-badge">8 条</span>
       </div>
       
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">01</span>
-          <span class="acc-text">香港首个五年规划：北京下达KPI还是「责无旁贷」的社会主义融合？</span>
+          <span class="acc-text">软银邀请更多银行加入400亿美元OpenAI贷款项目</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">香港特别行政区首次编制五年发展规划，引发外界关于其经济治理模式走向的讨论。部分观点将此解读为香港可能从市场经济发展路径转向更具计划性的模式。这一举措的背景是香港融入国家发展大局的进程深化，其具体内容和实施效果将深刻影响香港未来的经济定位与发展方向。</p>
-          <div class="acc-footer"><a href="https://www.bbc.com/zhongwen/articles/c6245evk06yo/trad?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">软银集团正邀请更多银行加入其400亿美元的贷款计划，以支持对美国科技巨头OpenAI的投资。该交易已进入“试启动”阶段，邀请其他贷款机构作为次级承销商加入，有意向机构需各自承诺出资约50亿美元。此举旨在为大规模AI投资提供资金支持，同时软银也在通过债券市场寻求额外融资，反映了全球资本对前沿AI技术的高度关注。</p>
+          <div class="acc-footer"><span class="acc-tag">全球</span><a href="https://36kr.com/newsflashes/3767505865179650?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">02</span>
-          <span class="acc-text">国共领袖时隔十年会晤 台湾民众怎么看？</span>
+          <span class="acc-text">IDC：2026年第一季度全球智能手机出货量下降4.1%</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">中国国民党主席郑丽文上周访问中国大陆，并在北京与中国共产党中央委员会总书记习近平举行会晤。这是十年来两党最高领导人首次会面，旨在促进两岸政党交流与对话。BBC中文走访了台湾地区民众，收集了他们对此次会晤的不同看法与反应，反映了岛内社会对两岸关系发展的复杂心态。</p>
-          <div class="acc-footer"><a href="https://www.bbc.com/zhongwen/articles/cvgeewwyzk0o/trad?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">市场研究机构IDC数据显示，2026年第一季度全球智能手机出货量下降4.1%，终结了连续十个季度增长的势头。苹果和三星是前五大品牌中仅有的实现增长的厂商，内存芯片供应紧缺和伊朗战争导致制造商成本上升，中国品牌受影响最大。IDC预计内存芯片供应紧张局面将持续到2027年下半年，行业面临供应链与地缘政治双重压力。</p>
+          <div class="acc-footer"><span class="acc-tag">全球</span><a href="https://36kr.com/newsflashes/3767495355138823?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">03</span>
-          <span class="acc-text">美中角力：谁在登月竞赛中领先？</span>
+          <span class="acc-text">IMF：中东战火将显著压低全球经济增速</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">美国“阿耳忒弥斯二号”登月任务标志着美国正重新聚焦月球探索，旨在实现宇航员重返月球。与此同时，中国也持续推进其雄心勃勃的探月工程，计划实现载人登月。这场新的太空竞赛不仅关乎科技实力与国家荣耀，更涉及未来月球资源开发、太空话语权等战略利益的争夺，成为中美战略竞争的新前沿领域。</p>
-          <div class="acc-footer"><a href="https://www.bbc.com/zhongwen/articles/clyjj9jwy90o/trad?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">国际货币基金组织警告，中东战火将显著压低全球经济增速，如果油价在今年剩余时间维持在每桶100美元左右，今年全球经济增速将仅为2.5%，为2020年以来最弱。同时，通胀率将高达5.4%，地缘政治冲突通过能源渠道对全球经济增长与物价稳定构成严重威胁，各国需协调应对以缓解冲击。</p>
+          <div class="acc-footer"><span class="acc-tag">全球</span><a href="https://www.ftchinese.com/story/001109453" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">04</span>
-          <span class="acc-text">教宗不想跟特朗普「争辩」——美梵首脑就伊朗问题隔空表态</span>
+          <span class="acc-text">国际能源署：全球石油需求大幅下降</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">美国总统特朗普因罗马天主教教宗良十四世对伊朗冲突的立场而对其发动了罕见的严厉批评。教宗随后回应称，不希望与特朗普进行公开争辩。此事凸显了在复杂的国际地缘政治议题上，宗教领袖的和平呼吁与政治领导人的强硬立场之间可能产生的分歧与张力。</p>
-          <div class="acc-footer"><a href="https://www.bbc.com/zhongwen/articles/c4g669ll1q4o/trad?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">国际能源署报告显示，全球石油需求大幅下降，尽管需求下降有助于抵消中东战火造成的部分供应损失，但短期供应缺口十分极端。在国际能源署协调下，各国已释放4亿桶战略石油储备以稳定市场。这反映了地缘政治紧张局势下，全球能源供需格局面临剧烈波动，主要经济体正通过政策工具干预以保障能源安全。</p>
+          <div class="acc-footer"><span class="acc-tag">全球</span><a href="https://www.ftchinese.com/story/001109452" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">05</span>
-          <span class="acc-text">菲律宾指控中国渔民在南海倾倒氰化物</span>
+          <span class="acc-text">“英国将是受能源危机影响最大的G7成员国”</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">菲律宾方面指控中国渔民在南海争议海域倾倒氰化物，意图毒杀鱼类以断绝菲方驻军食物来源。中国政府驳斥了这一指控，称其为“闹剧”。此事发生在南海局势持续紧张的背景下，进一步加剧了中菲两国在南海问题上的外交摩擦与舆论对抗。</p>
-          <div class="acc-footer"><a href="https://www.bbc.com/zhongwen/articles/cz900w1yqpzo/trad?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">国际货币基金组织将英国今年经济增长预测下调0.5个百分点至0.8%，称高度依赖天然气的英国将受到能源危机的“严重负面影响”。IMF指出，英国经济结构使其在G7国家中对能源价格波动最为敏感，能源供应紧张与价格高企将直接拖累其经济增长前景，并可能加剧国内通胀压力与社会经济挑战。</p>
+          <div class="acc-footer"><span class="acc-tag">英国</span><a href="https://www.ftchinese.com/story/001109451" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">06</span>
-          <span class="acc-text">到底有多少船只正在冒险穿越霍尔木兹海峡？</span>
+          <span class="acc-text">美国学者克里斯汀・卢尼：美国市场已对中国农业投资关上大门</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">BBC事实核查团队追踪发现，自周六清晨伊朗与美国停火谈判破裂以来，共有23艘船只穿越了局势紧张的霍尔木兹海峡。霍尔木兹海峡是全球石油运输的关键咽喉要道，其通航安全直接影响国际能源供应与价格。在地区冲突风险高企的背景下，船只的通行数据成为观察航运风险与地缘政治紧张程度的重要指标。</p>
-          <div class="acc-footer"><a href="https://www.bbc.com/zhongwen/articles/ckgww2w3009o/trad?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">乔治城大学亚洲研究与政府学副教授卢尼表示，受各州禁令影响，中国农业企业已放弃在美国购地计划，转而在其他地区寻找商业机会。美国各州通过立法限制外国投资农业用地，特别是针对中国资本，反映出中美经贸关系中的保护主义倾向加剧。这一趋势可能促使中国资本重新配置全球农业资产布局，寻求更开放的投资目的地。</p>
+          <div class="acc-footer"><span class="acc-tag">美国</span><a href="https://www.ftchinese.com/story/001109454" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">07</span>
-          <span class="acc-text">新冠病毒新变种「蝉」有多令人担忧？儿童是否更容易感染？</span>
+          <span class="acc-text">“老欧洲”的报复？后欧尔班时代的匈牙利与欧盟</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">一种名为“蝉”的高度变异新冠病毒变种目前已在全球23个国家被发现，世界卫生组织正在对其进行密切监测。初步信息引发关于其传播力、致病性以及是否对儿童更具威胁的担忧。公共卫生机构正评估该变种对现有疫苗和免疫屏障的影响，以决定是否需要调整防控策略。</p>
-          <div class="acc-footer"><a href="https://www.bbc.com/zhongwen/articles/cqxlljgq0z8o/trad?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">分析指出，真正推动匈牙利这场政治巨变的是普通人对日常生活的焦虑、对代际命运的关切以及对执政16年却仍无法解决通胀和腐败问题的政治体系的厌倦。匈牙利政治格局变化反映了民众对经济治理与社会公平的强烈诉求，可能影响其与欧盟的关系及国内政策走向，进而波及中东欧地区的政治经济稳定。</p>
+          <div class="acc-footer"><span class="acc-tag">匈牙利/欧盟</span><a href="https://www.ftchinese.com/story/001109455" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">08</span>
+          <span class="acc-text">教宗不想跟特朗普「爭辯」——美梵首脑就伊朗问题隔空表态</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">美国总统特朗普因罗马天主教教宗良十四世对伊朗冲突的立场而发动罕见严厉攻击，教宗回应称不欲与特朗普争辩。这反映了美国与梵蒂冈在伊朗等地缘政治议题上的立场分歧，可能影响跨大西洋关系与国际宗教外交。美梵高层隔空交锋凸显了意识形态与外交策略的差异，为全球冲突调解增添复杂性。</p>
+          <div class="acc-footer"><span class="acc-tag">美国/梵蒂冈</span><a href="https://www.bbc.com/zhongwen/articles/c4g669ll1q4o/trad?at_medium=RSS&at_campaign=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
@@ -528,85 +595,233 @@
     <section class="section" id="sec-3">
       <div class="sec-header">
         <div class="sec-header-left"><span class="sec-icon">📜</span><h2>政策动态</h2></div>
-        <span class="sec-badge">0 条</span>
-      </div>
-      <div class="empty">· 暂无相关内容 ·</div>
-    </section>
-    <section class="section" id="sec-4">
-      <div class="sec-header">
-        <div class="sec-header-left"><span class="sec-icon">📈</span><h2>股市行情</h2></div>
         <span class="sec-badge">4 条</span>
       </div>
       
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">01</span>
-          <span class="acc-text">外资机构年内调研沪市公司近1400次，科创板公司尤受青睐</span>
+          <span class="acc-text">央行公开市场开展5亿元7天期逆回购操作</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">2026年以来，外资机构对A股上市公司的调研热度持续升温，截至4月10日合计调研沪市公司近1400次。调研重点聚焦于半导体、高端装备、智能硬件、创新药等“硬科技”与新质生产力领域。这反映出国际资本正持续加大对中国核心科技产业的跟踪研究力度，有助于提升相关板块的市场关注度和估值水平。</p>
-          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3767465020883714?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">中国人民银行公开市场开展5亿元7天期逆回购操作，操作利率为1.40%，与此前持平。Wind数据显示，今日有5亿元逆回购到期，实现零投放零回笼。这显示央行继续通过精细化操作维护银行体系流动性合理充裕，保持货币政策稳健中性，为经济平稳运行提供适宜的货币金融环境。</p>
+          <div class="acc-footer"><span class="acc-tag">中国人民银行</span><a href="https://36kr.com/newsflashes/3767405979632136?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">02</span>
-          <span class="acc-text">沪深两市成交额突破1万亿</span>
+          <span class="acc-text">阿里云发布DDoS防护产品调价公告</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">4月15日，沪深两市成交额突破1万亿元，较上一交易日同时段放量超过700亿元。市场成交额的显著放大通常反映了投资者参与度的提升和资金活跃度的增强。在当前时点放量，可能预示着市场情绪有所回暖，或为后续行情发展提供一定的流动性支撑。</p>
-          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3767464327676423?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">阿里云公告，为统一产品定价规范，决定于2026年7月15日起对DDoS原生防护2.0（包年包月）、DDoS高防（中国内地）以及DDoS高防（非中国内地）商品的弹性95功能进行价格调整。其中，DDoS高防（中国内地）的弹性95由100元/Mbps/月调整为150元/Mbps/月。这反映了云计算安全服务成本上升趋势，企业需提前规划网络安全预算，应对潜在的网络攻击风险。</p>
+          <div class="acc-footer"><span class="acc-tag">企业公告</span><a href="https://36kr.com/newsflashes/3767442932122112?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">03</span>
-          <span class="acc-text">CPO概念延续强势 华盛昌12天6板续创历史新高</span>
+          <span class="acc-text">我国网络视听用户规模10.99亿人，稳居各互联网应用首位</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">4月15日，CPO（共封装光学）概念板块延续强势表现，个股华盛昌实现12个交易日内第6次涨停，股价续创历史新高。龙头股中际旭创涨幅超过4%，总市值逼近9000亿元，带动剑桥科技、瑞斯康达等相关个股跟涨。CPO作为AI算力基础设施的关键技术，其板块的持续走强反映了市场对AI硬件产业链高景气度的认可和追捧。</p>
-          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3767422352982528?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">《中国网络视听发展研究报告（2026）》显示，截至2025年12月，我国网络视听用户规模达10.99亿人，同比净增776万人。网络视听超过即时通信、网络支付、网络购物、搜索引擎，作为多年稳居首位的互联网应用，已是国内渗透范围最广、覆盖人群最多、链接千行百业和万亿大众的数字服务载体。这标志着数字内容消费已成为国民基础性需求，产业生态持续繁荣，为相关监管与产业政策制定提供重要依据。</p>
+          <div class="acc-footer"><span class="acc-tag">行业报告</span><a href="https://36kr.com/newsflashes/3767465576546820?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">04</span>
-          <span class="acc-text">「美股例外」何时休？</span>
+          <span class="acc-text">中国走出通缩阴影的积极意义</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">进入4月以来，受地缘关系缓和、“再通胀”预期走弱等利好推动，美股三大指数持续走强，科技板块成为领涨先锋。回顾今年走势，美股在2月后经历调整，但近期再度展现出强劲韧性。市场关注这种“美股例外”的强势表现能否持续，以及其背后的驱动因素是否会发生转变。</p>
+          <p class="acc-summary">分析指出，本轮物价回升的基础尚不牢固，内生动力偏弱、行业结构分化等挑战依然存在。物价上行主要由油价成本端因素驱动，难以形成可持续的涨价动力。中国走出通缩阴影具有积极意义，但需警惕输入性通胀与内需不足并存的风险，货币政策与财政政策需协同发力以巩固经济复苏基础。</p>
+          <div class="acc-footer"><span class="acc-tag">分析评论</span><a href="https://www.ftchinese.com/story/001109438" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-4">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📈</span><h2>股市行情</h2></div>
+        <span class="sec-badge">7 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">A股三大指数午间休盘涨跌不一，沐曦股份涨超13%</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">A股三大指数午间休盘涨跌不一，沪指涨0.37%，深成指跌0.25%，创业板指跌0.23%。GPU概念板块领涨，沐曦股份涨超13%，摩尔线程涨超6%，寒武纪涨近5%，创新药板块走强，博瑞医药、海正药业涨停。油气、煤炭板块持续调整，洲际油气、首华燃气跌超4%，市场呈现结构性分化行情，科技与医药板块表现强势。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3767533027836673?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">A股三大指数集体高开，创业板指高开1.06%创10年新高</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">A股三大指数集体高开，沪指高开0.32%，深成指高开0.66%，创业板指高开1.06%，创2015年6月以来新高。贵金属、培育钻石领涨，沃尔德涨近5%，湖南白银、晓程科技涨超3%；油气、煤炭跌幅居前，中曼石油跌超4%，洲际油气跌超2%。市场开盘情绪积极，创业板指突破关键点位，显示成长板块受到资金青睐。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3767410190057990?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">恒指开盘涨1.14%，恒生科技指数涨2.26%</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">恒生指数开盘涨1.14%，恒生科技指数涨2.26%，港股市场开盘表现强劲。科技股走强，京东集团涨近6%，阿里巴巴、百度集团涨超4%，中芯国际涨超3%；煤炭、石化板块调整，山东墨龙跌近4%，兖矿能源跌超2%。这反映了市场对科技板块的乐观情绪，以及能源板块受大宗商品价格波动影响而承压。</p>
+          <div class="acc-footer"><span class="acc-tag">港股</span><a href="https://36kr.com/newsflashes/3767405508526598?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">CPO概念延续强势 华盛昌12天6板续创历史新高</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">CPO概念延续强势，华盛昌12天6板，续创历史新高，龙头股中际旭创涨超4%，总市值逼近9000亿。剑桥科技、瑞斯康达、罗博特科、铭普光磁、新易盛等跟涨，光模块板块持续受到市场追捧。这反映了AI算力需求驱动下，光通信产业链景气度高涨，相关公司业绩与估值同步提升，成为市场热点板块。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3767422352982528?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">沪深两市成交额突破1万亿</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">沪深两市成交额突破1万亿元，较上一日此时放量超700亿元。成交额放大显示市场交投活跃度显著提升，资金参与意愿增强。在高成交额支撑下，市场结构性机会可能增多，但需关注量能能否持续以及热点板块的轮动情况，避免追高风险。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3767464327676423?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">06</span>
+          <span class="acc-text">外资机构年内调研沪市公司近1400次，科创板公司尤受青睐</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">2026年以来，外资机构对A股上市公司的调研热度持续升温，合计调研沪市公司近1400次，覆盖约190家沪市公司。调研重点聚焦于半导体、高端装备、智能硬件、创新药等领域，科创板公司尤受青睐。这反映出国际资本正持续加大对中国“硬科技”与新质生产力的跟踪研究力度，看好中国科技创新产业的长期发展潜力。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3767465020883714?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">07</span>
+          <span class="acc-text">「美股例外」何时休？</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">分析指出，进入4月以来，受地缘关系缓和、“再通胀”预期走弱等利好的持续释放，美股三大指数持续走强。科技板块作为本轮美股短期上涨的“领头羊”表现相对强势，半导体、芯片、AI、量子技术等方向表现尤为突出。美股表现与全球其他市场形成对比，但其持续性仍取决于企业盈利、利率政策及地缘政治风险等多重因素。</p>
           <div class="acc-footer"><span class="acc-tag">美股</span><a href="https://36kr.com/p/3766410231726855?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
@@ -614,24 +829,106 @@
     <section class="section" id="sec-5">
       <div class="sec-header">
         <div class="sec-header-left"><span class="sec-icon">📊</span><h2>宏观经济</h2></div>
-        <span class="sec-badge">1 条</span>
+        <span class="sec-badge">5 条</span>
       </div>
       
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">01</span>
-          <span class="acc-text">我国网络视听用户规模10.99亿人，稳居各互联网应用首位</span>
+          <span class="acc-text">IDC：2026年第一季度全球智能手机出货量下降4.1%</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">《中国网络视听发展研究报告（2026）》显示，截至2025年12月，我国网络视听用户规模达10.99亿人，同比净增776万人。网络视听已超越即时通信、网络支付等应用，成为国内渗透范围最广、覆盖人群最多的互联网服务。作为链接千行百业的数字服务载体，其庞大的用户基数为数字经济发展提供了坚实基础和市场空间。</p>
-          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767465576546820?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">市场研究机构IDC数据显示，2026年第一季度全球智能手机出货量下降4.1%，终结了连续十个季度增长的势头。苹果和三星是前五大品牌中仅有的实现增长的厂商，内存芯片供应紧缺和伊朗战争导致制造商成本上升，中国品牌受影响最大。IDC预计内存芯片供应紧张局面将持续到2027年下半年，行业面临供应链与地缘政治双重压力。</p>
+          <div class="acc-footer"><span class="acc-tag">智能手机出货量</span><a href="https://36kr.com/newsflashes/3767495355138823?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">IMF：中东战火将显著压低全球经济增速</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国际货币基金组织警告，中东战火将显著压低全球经济增速，如果油价在今年剩余时间维持在每桶100美元左右，今年全球经济增速将仅为2.5%，为2020年以来最弱。同时，通胀率将高达5.4%，地缘政治冲突通过能源渠道对全球经济增长与物价稳定构成严重威胁，各国需协调应对以缓解冲击。</p>
+          <div class="acc-footer"><span class="acc-tag">全球经济增速</span><a href="https://www.ftchinese.com/story/001109453" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">“英国将是受能源危机影响最大的G7成员国”</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国际货币基金组织将英国今年经济增长预测下调0.5个百分点至0.8%，称高度依赖天然气的英国将受到能源危机的“严重负面影响”。IMF指出，英国经济结构使其在G7国家中对能源价格波动最为敏感，能源供应紧张与价格高企将直接拖累其经济增长前景，并可能加剧国内通胀压力与社会经济挑战。</p>
+          <div class="acc-footer"><span class="acc-tag">英国经济增长</span><a href="https://www.ftchinese.com/story/001109451" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">我国网络视听用户规模10.99亿人，稳居各互联网应用首位</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">《中国网络视听发展研究报告（2026）》显示，截至2025年12月，我国网络视听用户规模达10.99亿人，同比净增776万人。网络视听超过即时通信、网络支付、网络购物、搜索引擎，作为多年稳居首位的互联网应用，已是国内渗透范围最广、覆盖人群最多、链接千行百业和万亿大众的数字服务载体。这标志着数字内容消费已成为国民基础性需求，产业生态持续繁荣，为相关监管与产业政策制定提供重要依据。</p>
+          <div class="acc-footer"><span class="acc-tag">网络视听用户规模</span><a href="https://36kr.com/newsflashes/3767465576546820?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">中国走出通缩阴影的积极意义</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">分析指出，本轮物价回升的基础尚不牢固，内生动力偏弱、行业结构分化等挑战依然存在。物价上行主要由油价成本端因素驱动，难以形成可持续的涨价动力。中国走出通缩阴影具有积极意义，但需警惕输入性通胀与内需不足并存的风险，货币政策与财政政策需协同发力以巩固经济复苏基础。</p>
+          <div class="acc-footer"><span class="acc-tag">物价走势</span><a href="https://www.ftchinese.com/story/001109438" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
@@ -639,24 +936,46 @@
     <section class="section" id="sec-6">
       <div class="sec-header">
         <div class="sec-header-left"><span class="sec-icon">🥇</span><h2>大宗商品</h2></div>
-        <span class="sec-badge">1 条</span>
+        <span class="sec-badge">2 条</span>
       </div>
       
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">01</span>
-          <span class="acc-text">飞天茅台全线上涨，今日26年飞天原箱批价报1665元/瓶</span>
+          <span class="acc-text">国际能源署：全球石油需求大幅下降</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">4月15日，飞天茅台批发参考价全线上涨，其中26年飞天茅台原箱报价为1665元/瓶，较上一日上涨5元。25年飞天茅台原箱和散瓶价格也分别有5元和10元的上调。茅台批价的持续坚挺甚至上涨，反映了其作为高端消费品和投资品的稀缺属性与强劲需求，也是观察高端消费市场景气度的一个微观指标。</p>
-          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3767452580839940?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">国际能源署报告显示，全球石油需求大幅下降，尽管需求下降有助于抵消中东战火造成的部分供应损失，但短期供应缺口十分极端。在国际能源署协调下，各国已释放4亿桶战略石油储备以稳定市场。这反映了地缘政治紧张局势下，全球能源供需格局面临剧烈波动，主要经济体正通过政策工具干预以保障能源安全。</p>
+          <div class="acc-footer"><span class="acc-tag">原油</span><a href="https://www.ftchinese.com/story/001109452" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">飞天茅台全线上涨，今日26年飞天原箱批价报1665元/瓶</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">“今日酒价”披露的最新批发参考价显示，4月15日，26年飞天茅台原箱报1665元/瓶，较上一日上涨5元；26年飞天茅台散瓶报1565元/瓶，与上日价格持平。25年飞天茅台原箱报1675元/瓶，较上一日上涨5元；25年飞天茅台散瓶报1610元/瓶，较上一日上涨10元。高端白酒价格稳中有升，反映消费需求韧性及品牌溢价能力，但需关注终端动销与库存情况。</p>
+          <div class="acc-footer"><span class="acc-tag">白酒</span><a href="https://36kr.com/newsflashes/3767452580839940?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
@@ -670,90 +989,100 @@
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">01</span>
-          <span class="acc-text">关注AI算力硬件产业链投资机会</span>
+          <span class="acc-text">关注AI算力产业链投资机会</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">CPO概念板块持续走强及外资密集调研半导体等硬科技领域，显示AI算力硬件仍是市场核心主线。适合对科技成长股有研究、能承受较高波动的投资者。切入点可关注已形成技术壁垒的CPO龙头、光模块厂商及上游芯片公司。操作上建议结合技术面与基本面，逢低布局核心标的，避免追高题材炒作个股。</p>
-          <div class="acc-footer"><span class="acc-tag">科技/AI硬件</span><a href="https://36kr.com/newsflashes/3767422352982528?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">软银400亿美元贷款支持OpenAI、CPO概念股持续走强、腾讯云上线Hermes Agent模板，显示AI算力需求旺盛。适合关注科技成长的投资者，可切入光模块、AI芯片、云计算基础设施等细分领域。注意风险：技术迭代快、估值较高、全球融资环境可能收紧，需精选具有核心技术壁垒与业绩支撑的公司。</p>
+          <div class="acc-footer"><span class="acc-tag">AI算力</span><a href="https://36kr.com/newsflashes/3767505865179650?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">02</span>
-          <span class="acc-text">把握机器人产业链上游核心部件机遇</span>
+          <span class="acc-text">布局硬科技与科创板外资调研热点</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">宁德时代等产业资本投资六维力传感器公司蓝点触控，凸显机器人产业链上游核心零部件的战略价值。适合关注高端制造和新兴产业、进行中长期布局的投资者。切入点在于寻找在传感器、减速器、控制器等关键环节具备核心技术和高国产化替代潜力的公司。建议深入研究公司技术实力与客户绑定情况，进行分散配置。</p>
-          <div class="acc-footer"><span class="acc-tag">高端制造/机器人</span><a href="https://36kr.com/p/3766434507440903?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">外资机构年内调研沪市公司近1400次，重点聚焦半导体、高端装备、智能硬件、创新药等领域，科创板公司尤受青睐。适合长期价值投资者，可跟随外资调研轨迹，关注研发投入高、国产替代空间大的硬科技公司。注意风险：技术研发不确定性大、行业周期波动、国际贸易政策变化，需深入分析公司基本面与行业景气度。</p>
+          <div class="acc-footer"><span class="acc-tag">硬科技</span><a href="https://36kr.com/newsflashes/3767465020883714?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">03</span>
-          <span class="acc-text">警惕房地产行业风险处置的连锁反应</span>
+          <span class="acc-text">警惕地缘政治与能源价格波动风险</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">恒大案件进入一审开庭阶段，标志着头部房企风险处置进入司法深水区。适合所有投资者作为系统性风险因子进行关注。此事件可能影响房地产行业整体信用修复进程、相关金融资产估值以及市场对地产板块的风险偏好。建议投资者审视自身持仓中与地产关联度高的资产（如地产股、相关债券、金融产品），评估潜在冲击，保持谨慎。</p>
-          <div class="acc-footer"><span class="acc-tag">风险规避/地产金融</span><a href="https://36kr.com/p/3767326268392199?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">IMF警告中东战火压低全球经济增速，国际能源署称石油需求下降但供应缺口极端，英国经济增长因能源危机被下调。适合所有投资者，需警惕能源价格飙升对通胀、企业成本及全球经济增长的冲击。注意风险：地缘冲突可能升级、能源供应链中断、高油价拖累消费与投资，建议分散资产配置并增加防御性仓位。</p>
+          <div class="acc-footer"><span class="acc-tag">地缘风险</span><a href="https://www.ftchinese.com/story/001109453" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">04</span>
-          <span class="acc-text">关注物流仓储自动化升级带来的机会</span>
+          <span class="acc-text">把握新能源汽车产业链景气回升机会</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">菜鸟发布攀爬机器人并实现效率翻倍，代表物流仓储自动化向立体、柔性化发展。适合关注产业升级、智慧物流主题的投资者。切入点包括智能仓储设备提供商、物流系统集成商及拥有大规模仓储资产的物流公司。操作上可关注相关公司技术落地进展与订单情况，寻找业绩有望受益于行业效率革命的标的。</p>
-          <div class="acc-footer"><span class="acc-tag">智慧物流/自动化</span><a href="https://36kr.com/newsflashes/3767429503173382?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">华西证券研报看好锂电产业链高景气度趋势，3月国内新能源汽车销量恢复明显，锂电池产业链进入新一轮扩产周期。适合关注周期成长的投资者，可切入上游材料如铜箔、隔膜等供需紧张环节。注意风险：原材料价格波动、产能过剩风险、技术路线变化，需跟踪下游需求与产能释放节奏，避免盲目追高。</p>
+          <div class="acc-footer"><span class="acc-tag">新能源汽车</span><a href="https://36kr.com/newsflashes/3767374831502080?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
       <details class="acc-item">
         <summary class="acc-title">
           <span class="acc-index">05</span>
-          <span class="acc-text">挖掘宠物经济精细化与智能化赛道</span>
+          <span class="acc-text">关注网络视听与数字内容消费趋势</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
         <div class="acc-body">
-          <p class="acc-summary">娲宝科技发布宠物智能项圈并布局“项圈+宠粮”数据闭环，显示宠物消费正从基础饲养向精细化健康管理延伸。适合关注消费升级、细分赛道成长的投资者。切入点在于宠物智能硬件（健康监测、智能喂养）、宠物医疗服务、高端宠物食品等细分领域。建议关注产品创新能力强、能构建服务生态闭环的公司，把握宠物人性化养护趋势。</p>
-          <div class="acc-footer"><span class="acc-tag">消费/宠物经济</span><a href="https://36kr.com/p/3767424500171271?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+          <p class="acc-summary">我国网络视听用户规模达10.99亿人，稳居互联网应用首位，显示数字内容消费成为国民基础需求。适合关注消费与科技融合的投资者，可切入内容平台、技术支持、衍生服务等环节。注意风险：行业竞争激烈、监管政策变化、用户增长放缓，需关注公司内容生态建设能力与盈利模式可持续性。</p>
+          <div class="acc-footer"><span class="acc-tag">数字内容</span><a href="https://36kr.com/newsflashes/3767465576546820?f=rss" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a></div>
         </div>
       </details>
