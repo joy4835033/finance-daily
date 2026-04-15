@@ -9,19 +9,30 @@ const client = new OpenAI({
   baseURL: 'https://api.deepseek.com/v1',
 });
 
+// ─────────────────────────────────────────────
+// 新闻源（财经版）
+// ─────────────────────────────────────────────
 const SOURCES: RSSSource[] = [
-  { name: '新华社',        url: 'https://feeds.feedburner.com/xinhua/news',         tier: 1 },
-  { name: '人民日报',       url: 'https://www.people.com.cn/rss/politics.xml',       tier: 1 },
-  { name: '央视新闻',       url: 'https://news.cctv.com/rss/china.xml',              tier: 1 },
-  { name: '财联社',         url: 'https://www.cls.cn/rss',                           tier: 2 },
-  { name: '东方财富',       url: 'https://feed.eastmoney.com/news/1,0.html',         tier: 2 },
-  { name: '证券时报',       url: 'https://www.stcn.com/feed/rss.xml',                tier: 2 },
-  { name: '第一财经',       url: 'https://www.yicai.com/rss/',                       tier: 2 },
-  { name: '36氪财经',       url: 'https://36kr.com/feed',                            tier: 2 },
-  { name: 'Reuters China', url: 'https://feeds.reuters.com/reuters/CNTopNews',       tier: 2 },
-  { name: 'BBC中文',        url: 'https://feeds.bbci.co.uk/zhongwen/simp/rss.xml',   tier: 3 },
+  // Tier 1：权威官方
+  { name: '人民日报财经', url: 'http://www.people.com.cn/rss/finance.xml',             tier: 1 },
+  { name: '新华社经济',   url: 'http://www.xinhuanet.com/fortune/news_fortune.xml',    tier: 1 },
+
+  // Tier 2：优质财经媒体
+  { name: '36氪',        url: 'https://36kr.com/feed',                               tier: 2 },
+  { name: '华尔街见闻',   url: 'https://wallstreetcn.com/feed',                       tier: 2 },
+  { name: 'FT中文网',     url: 'https://www.ftchinese.com/rss/feed',                  tier: 2 },
+  { name: '财新网',       url: 'https://weekly.caixin.com/rss/',                      tier: 2 },
+  { name: '澎湃财经',     url: 'https://www.thepaper.cn/rss_service.jsp?col_id=25635', tier: 2 },
+
+  // Tier 3：补充信源
+  { name: 'BBC中文',      url: 'https://feeds.bbci.co.uk/zhongwen/simp/rss.xml',      tier: 3 },
+  { name: '金十数据',     url: 'https://www.jin10.com/rss.xml',                       tier: 3 },
+  { name: '路透中文',     url: 'https://cn.reuters.com/rssFeed/CNTopNews',            tier: 3 },
 ];
 
+// ─────────────────────────────────────────────
+// 工具函数
+// ─────────────────────────────────────────────
 function getBeijingDate(): { dateStr: string; weekDay: string } {
   const now = new Date();
   const beijing = new Date(now.getTime() + 8 * 60 * 60 * 1000);
@@ -33,13 +44,12 @@ function getBeijingDate(): { dateStr: string; weekDay: string } {
 }
 
 function getWeekDayFromDateStr(dateStr: string): string {
-  const weekDayMap: Record<string, string> = {
-    '0': '星期日', '1': '星期一', '2': '星期二', '3': '星期三',
-    '4': '星期四', '5': '星期五', '6': '星期六',
+  const map: Record<string, string> = {
+    '0':'星期日','1':'星期一','2':'星期二','3':'星期三',
+    '4':'星期四','5':'星期五','6':'星期六',
   };
   const [y, m, d] = dateStr.split('-').map(Number);
-  const date = new Date(Date.UTC(y, m - 1, d));
-  return weekDayMap[String(date.getUTCDay())];
+  return map[String(new Date(Date.UTC(y, m - 1, d)).getUTCDay())];
 }
 
 function filterRecent(articles: Article[]): Article[] {
@@ -49,37 +59,49 @@ function filterRecent(articles: Article[]): Article[] {
 
 function scoreAndFilter(articles: Article[]): Article[] {
   const now = Date.now();
-  const scored = articles.map(a => {
-    const truthScore = a.tier === 1 ? 1.0 : a.tier === 2 ? 0.7 : 0.4;
-    const ageHours = (now - a.publishedAt.getTime()) / (1000 * 60 * 60);
-    const freshnessScore = Math.max(0, 1 - ageHours / 24);
-    return { ...a, score: truthScore * 0.5 + freshnessScore * 0.5 };
+  const seen = new Set<string>();
+  const deduped = articles.filter(a => {
+    const key = a.title.slice(0, 20);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
   });
-  return scored.sort((a, b) => (b as any).score - (a as any).score).slice(0, 60);
+  return deduped
+    .map(a => {
+      const truthScore     = a.tier === 1 ? 1.0 : a.tier === 2 ? 0.7 : 0.4;
+      const ageHours       = (now - a.publishedAt.getTime()) / (1000 * 60 * 60);
+      const freshnessScore = Math.max(0, 1 - ageHours / 24);
+      return { ...a, _score: truthScore * 0.5 + freshnessScore * 0.5 };
+    })
+    .sort((a, b) => b._score - a._score)
+    .slice(0, 60);
 }
 
 function articlesToPromptJson(articles: Article[]): string {
   return JSON.stringify(articles.map((a, i) => ({
-    id: i + 1,
-    title: a.title,
+    id:      i + 1,
+    title:   a.title,
     summary: a.summary.slice(0, 300),
-    source: a.source,
-    tier: a.tier,
-    url: a.link,
-    time: a.publishedAt.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
+    source:  a.source,
+    tier:    a.tier,
+    url:     a.link,
+    time:    a.publishedAt.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }),
   })), null, 2);
 }
 
+// ─────────────────────────────────────────────
+// AI 生成（一次调用搞定所有分类）
+// ─────────────────────────────────────────────
 async function generateSections(rawJson: string, dateStr: string): Promise<string> {
   const prompt =
-    '你是一位专业的财经政治日报主编，今天是' + dateStr + '。\n\n'
-  + '以下是今日抓取的原始新闻列表（JSON格式），每条包含 tier 字段（1=官方一手，2=优质媒体，3=补充信源）：\n'
+    '你是一位专业的财经政经日报主编，今天是' + dateStr + '。\n\n'
+  + '以下是今日抓取的原始新闻列表（JSON格式），每条包含 tier 字段（1=官方权威，2=优质媒体，3=补充信源）：\n'
   + rawJson + '\n\n'
-  + '请根据这些新闻生成结构化日报，严格按以下JSON格式返回，不要有任何多余内容。\n\n'
+  + '请根据这些新闻生成结构化财经日报，严格按以下JSON格式返回，不要有任何多余内容。\n\n'
   + '【重要】每条新闻的 summary 字段必须严格满足：\n'
   + '1. 字数：80到120个中文字符，绝对不能少于80字\n'
   + '2. 内容：第一句说明事件是什么，第二句说明背景或原因，第三句说明影响或意义\n'
-  + '3. 语言：简洁专业，不使用"该公司""此次"等模糊表达，直接说主语\n'
+  + '3. 语言：简洁专业，直接说主语，不使用"该公司""此次"等模糊表达\n'
   + '4. 禁止：不得只写一句话，不得少于三句话\n'
   + '5. url 字段：直接复制原始新闻中对应的 url 值，不得修改或编造\n\n'
   + '返回格式：\n'
@@ -88,44 +110,42 @@ async function generateSections(rawJson: string, dateStr: string): Promise<strin
   + '    "highlights": [\n'
   + '      { "title": "中文标题", "summary": "80-120字三句话摘要", "url": "原文链接" }\n'
   + '    ],\n'
-  + '    "marketOverview":  "今日市场整体概述100字以内",\n'
-  + '    "policyImpact":    "政策对市场影响分析100字以内",\n'
-  + '    "riskWarning":     "风险预警100字以内"\n'
+  + '    "marketPulse":  "今日市场情绪与资金动向分析，100字以内",\n'
+  + '    "policySignal": "政策信号解读，100字以内",\n'
+  + '    "riskWarning":  "风险预警，100字以内"\n'
   + '  },\n'
   + '  "cat2": [\n'
-  + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "url": "原文链接" }\n'
+  + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "region": "地区/国家", "url": "原文链接" }\n'
   + '  ],\n'
   + '  "cat3": [\n'
-  + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "policy": "政策类型", "url": "原文链接" }\n'
+  + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "ministry": "发布部门", "url": "原文链接" }\n'
   + '  ],\n'
   + '  "cat4": [\n'
   + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "market": "A股/港股/美股", "url": "原文链接" }\n'
   + '  ],\n'
   + '  "cat5": [\n'
-  + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "url": "原文链接" }\n'
+  + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "indicator": "指标名称", "url": "原文链接" }\n'
   + '  ],\n'
   + '  "cat6": [\n'
-  + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "url": "原文链接" }\n'
+  + '    { "title": "中文标题", "summary": "80-120字三句话摘要", "commodity": "品种", "url": "原文链接" }\n'
   + '  ],\n'
   + '  "cat7": [\n'
-  + '    { "title": "机会标题", "summary": "80-120字机会拆解，说明适合人群、切入点、操作建议", "direction": "方向标签", "url": "原文链接" }\n'
+  + '    { "title": "机会标题", "summary": "80-120字机会拆解，说明适合人群、切入点、注意风险", "direction": "方向标签", "url": "原文链接" }\n'
   + '  ]\n'
   + '}\n\n'
   + '分类规则：\n'
-  + '- cat1.highlights：今日最重要5-10条，优先选 tier=1 的内容，标题译成中文\n'
-  + '- cat2：国内外重大时事（政治/外交/社会/军事），5-10条\n'
-  + '- cat3：国家政策/监管动态/央行动作/重要会议，5-10条\n'
-  + '- cat4：A股/港股/美股市场动态/个股异动/板块行情，5-10条\n'
-  + '- cat5：宏观经济数据/GDP/CPI/就业/贸易数据，5-10条\n'
-  + '- cat6：大宗商品/黄金/原油/汇率/债券市场，5-10条\n'
-  + '- cat7：从今日新闻中提炼5-10条普通投资者可关注的机会或风险，给出具体方向标签\n'
+  + '- cat1.highlights：今日最重要5-10条，优先选 tier=1 的内容\n'
+  + '- cat2：时事要闻，国内外重大政治经济事件，5-10条\n'
+  + '- cat3：政策动态，央行/发改委/证监会/财政部等政策发布，5-10条\n'
+  + '- cat4：股市行情，A股/港股/美股重要个股或板块动态，5-10条\n'
+  + '- cat5：宏观经济，GDP/CPI/PMI/就业等宏观数据与分析，5-10条\n'
+  + '- cat6：大宗商品，黄金/原油/铜/农产品等商品行情，5-10条\n'
+  + '- cat7：从今日新闻中提炼5-10条适合普通投资者的机会或注意事项\n'
   + '- 若原始新闻中该分类内容不足5条，则全部收录，不得编造不存在的新闻\n'
-  + '- 每条新闻只能出现在一个分类中，不得在多个分类重复出现\n'
-  + '- 所有 title 必须翻译成中文，禁止出现英文标题\n'
-  + '- 无相关内容返回空数组[]\n'
-  + '- 所有 title 和 summary 必须是中文\n'
-  + '- 不得编造原始新闻中没有的内容\n'
-  + '- 返回的JSON中禁止使用中文引号（"和"），所有字符串必须使用英文双引号(")';
+  + '- 每条新闻只能出现在一个分类中，不得重复\n'
+  + '- 所有 title 必须是中文，禁止出现英文标题\n'
+  + '- 无相关内容返回空数组 []\n'
+  + '- 返回的JSON中禁止使用中文引号，所有字符串必须使用英文双引号(")';
 
   let response;
   const maxRetries = 3;
@@ -162,16 +182,20 @@ async function generateSections(rawJson: string, dateStr: string): Promise<strin
   return response.choices[0].message.content || '{}';
 }
 
+// ─────────────────────────────────────────────
+// HTML 组件
+// ─────────────────────────────────────────────
 function newsAccordion(items: any[], extraField?: string): string {
   if (!items.length) return '<div class="empty">· 暂无相关内容 ·</div>';
   return items.map((item, i) => {
-    const idx = String(i + 1).padStart(2, '0');
+    const idx   = String(i + 1).padStart(2, '0');
     const extra = extraField && item[extraField]
       ? `<span class="acc-tag">${item[extraField]}</span>` : '';
     const sourceLink = item.url
       ? `<a href="${item.url}" target="_blank" rel="noopener" class="acc-source-link">
            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
-             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
            </svg>查看原文</a>` : '';
     return `
       <details class="acc-item">
@@ -180,7 +204,8 @@ function newsAccordion(items: any[], extraField?: string): string {
           <span class="acc-text">${item.title}</span>
           <span class="acc-arrow">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </summary>
@@ -193,8 +218,8 @@ function newsAccordion(items: any[], extraField?: string): string {
 }
 
 function buildDailyHTML(jsonStr: string, dateStr: string, weekDay: string, total: number): string {
-  const data = JSON.parse(jsonStr);
-  const cat1 = data.cat1 || {};
+  const data       = JSON.parse(jsonStr);
+  const cat1       = data.cat1 || {};
   const highlights = cat1.highlights || [];
   const cat2 = data.cat2 || [];
   const cat3 = data.cat3 || [];
@@ -215,12 +240,12 @@ function buildDailyHTML(jsonStr: string, dateStr: string, weekDay: string, total
       </div>
       <div class="insight-grid">
         <div class="insight-card">
-          <div class="insight-label"><span class="insight-dot dot-purple"></span>市场概述</div>
-          <div class="insight-text">${cat1.marketOverview || '暂无分析'}</div>
+          <div class="insight-label"><span class="insight-dot dot-purple"></span>市场情绪</div>
+          <div class="insight-text">${cat1.marketPulse || '暂无分析'}</div>
         </div>
         <div class="insight-card accent-cyan">
-          <div class="insight-label"><span class="insight-dot dot-cyan"></span>政策影响</div>
-          <div class="insight-text">${cat1.policyImpact || '暂无分析'}</div>
+          <div class="insight-label"><span class="insight-dot dot-cyan"></span>政策信号</div>
+          <div class="insight-text">${cat1.policySignal || '暂无解读'}</div>
         </div>
         <div class="insight-card accent-pink">
           <div class="insight-label"><span class="insight-dot dot-pink"></span>风险预警</div>
@@ -230,12 +255,12 @@ function buildDailyHTML(jsonStr: string, dateStr: string, weekDay: string, total
     </section>`;
 
   const sections = [
-    { id: 2, icon: '🌏', title: '时事要闻',  items: cat2, extra: ''          },
-    { id: 3, icon: '📜', title: '政策动态',  items: cat3, extra: 'policy'    },
-    { id: 4, icon: '📈', title: '股市行情',  items: cat4, extra: 'market'    },
-    { id: 5, icon: '📊', title: '宏观经济',  items: cat5, extra: ''          },
-    { id: 6, icon: '🥇', title: '大宗商品',  items: cat6, extra: ''          },
-    { id: 7, icon: '💡', title: '投资机会',  items: cat7, extra: 'direction' },
+    { id: 2, icon: '🌏', title: '时事要闻', items: cat2, extra: 'region'    },
+    { id: 3, icon: '📜', title: '政策动态', items: cat3, extra: 'ministry'  },
+    { id: 4, icon: '📈', title: '股市行情', items: cat4, extra: 'market'    },
+    { id: 5, icon: '📊', title: '宏观经济', items: cat5, extra: 'indicator' },
+    { id: 6, icon: '🥇', title: '大宗商品', items: cat6, extra: 'commodity' },
+    { id: 7, icon: '💡', title: '投资机会', items: cat7, extra: 'direction' },
   ];
 
   const otherHTML = sections.map(s => `
@@ -244,7 +269,7 @@ function buildDailyHTML(jsonStr: string, dateStr: string, weekDay: string, total
         <div class="sec-header-left"><span class="sec-icon">${s.icon}</span><h2>${s.title}</h2></div>
         <span class="sec-badge">${s.items.length} 条</span>
       </div>
-      ${newsAccordion(s.items, s.extra || undefined)}
+      ${newsAccordion(s.items, s.extra)}
     </section>`).join('');
 
   const navItems = [
@@ -275,7 +300,8 @@ function buildDailyHTML(jsonStr: string, dateStr: string, weekDay: string, total
     <div class="brand">
       <a href="../" class="back-btn">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
       <div class="brand-mark">📰</div>
@@ -315,7 +341,7 @@ function buildDailyHTML(jsonStr: string, dateStr: string, weekDay: string, total
 function buildIndexHTML(dates: { dateStr: string; weekDay: string }[]): string {
   const cardHTML = dates.map((item, i) => {
     const isLatest = i === 0;
-    const weekDay = item.weekDay || getWeekDayFromDateStr(item.dateStr);
+    const weekDay  = item.weekDay || getWeekDayFromDateStr(item.dateStr);
     return `
     <a href="./${item.dateStr}/index.html" class="date-card ${isLatest ? 'date-card-latest' : ''}">
       <div class="date-card-left">
@@ -328,7 +354,8 @@ function buildIndexHTML(dates: { dateStr: string; weekDay: string }[]): string {
       </div>
       ${isLatest ? '<span class="date-card-badge">最新</span>' : ''}
       <svg class="date-card-arrow" width="18" height="18" viewBox="0 0 16 16" fill="none">
-        <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>`;
   }).join('');
@@ -345,10 +372,10 @@ function buildIndexHTML(dates: { dateStr: string; weekDay: string }[]): string {
     .index-hero { text-align: center; margin-bottom: 2.5rem; }
     .index-hero-mark {
       width: 64px; height: 64px; border-radius: 18px;
-      background: linear-gradient(135deg, var(--accent) 0%, #5b4fd4 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #1a6b3a 100%);
       display: flex; align-items: center; justify-content: center;
       font-size: 28px; margin: 0 auto 1.2rem;
-      box-shadow: 0 0 32px rgba(124,106,255,0.4);
+      box-shadow: 0 0 32px rgba(16,185,129,0.4);
     }
     .index-hero h1 { font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
     .index-hero p  { font-size: 0.85rem; color: var(--muted); letter-spacing: 1px; }
@@ -366,17 +393,17 @@ function buildIndexHTML(dates: { dateStr: string; weekDay: string }[]): string {
       transition: border-color 0.15s, background 0.15s;
       position: relative; overflow: hidden;
     }
-    .date-card:hover { border-color: var(--accent); background: rgba(124,106,255,0.04); }
-    .date-card-latest { border-color: rgba(124,106,255,0.4); background: rgba(124,106,255,0.06); }
+    .date-card:hover { border-color: var(--accent); background: rgba(16,185,129,0.04); }
+    .date-card-latest { border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.06); }
     .date-card-left { text-align: center; min-width: 48px; }
-    .date-card-day { font-size: 1.8rem; font-weight: 700; color: var(--text); font-family: 'Space Grotesk', monospace; line-height: 1; }
+    .date-card-day  { font-size: 1.8rem; font-weight: 700; color: var(--text); font-family: 'Space Grotesk', monospace; line-height: 1; }
     .date-card-month { font-size: 0.65rem; color: var(--muted); margin-top: 3px; letter-spacing: 1px; }
     .date-card-right { flex: 1; }
     .date-card-week  { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
     .date-card-label { font-size: 0.75rem; color: var(--muted); }
     .date-card-badge {
       font-size: 0.6rem; font-weight: 700; color: var(--accent);
-      background: rgba(124,106,255,0.12); border: 1px solid rgba(124,106,255,0.3);
+      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3);
       padding: 2px 8px; border-radius: 20px; letter-spacing: 1px;
     }
     .date-card-arrow { color: var(--muted2); flex-shrink: 0; }
@@ -407,7 +434,7 @@ function buildIndexHTML(dates: { dateStr: string; weekDay: string }[]): string {
   <div class="index-hero">
     <div class="index-hero-mark">📰</div>
     <h1>每日财经政经播报</h1>
-    <p>每日 国事 · 股市 · 政策 · 宏观资讯精选</p>
+    <p>每日财经 · 政策 · 市场资讯精选</p>
   </div>
   <div class="index-list-title">历史日报 · ${dates.length} 期</div>
   ${dates.length > 0 ? cardHTML : '<div class="index-empty">· 暂无历史日报 ·</div>'}
@@ -429,15 +456,18 @@ function scanHistoryDates(): { dateStr: string; weekDay: string }[] {
     .map(dateStr => ({ dateStr, weekDay: getWeekDayFromDateStr(dateStr) }));
 }
 
+// ─────────────────────────────────────────────
+// CSS（财经绿色主题）
+// ─────────────────────────────────────────────
 function getCommonCSS(): string {
   return `
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0a0a0f; --bg2: #0f0f1a; --card: #13131f;
-      --border: #1e1e35; --border2: #252540;
-      --accent: #7c6aff; --cyan: #00e5ff; --pink: #ff6b9d;
-      --text: #e8e8f0; --muted: #6b6b8a; --muted2: #4a4a6a;
+      --bg: #050a08; --bg2: #0a120d; --card: #0d1a12;
+      --border: #152b1e; --border2: #1e3d2a;
+      --accent: #10b981; --cyan: #34d399; --pink: #f59e0b;
+      --text: #e2f0e8; --muted: #5a8a6e; --muted2: #3a5a48;
       --radius-lg: 12px; --radius-md: 8px; --radius-sm: 5px;
     }
     body {
@@ -446,7 +476,7 @@ function getCommonCSS(): string {
       line-height: 1.7; font-size: 14px; -webkit-font-smoothing: antialiased;
     }
     header {
-      background: rgba(10,10,15,0.95); backdrop-filter: blur(16px);
+      background: rgba(5,10,8,0.95); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border); height: 64px;
       display: flex; align-items: center; padding: 0 2rem;
       position: sticky; top: 0; z-index: 200;
@@ -466,12 +496,12 @@ function getCommonCSS(): string {
       border: 1px solid var(--border2); color: var(--muted);
       text-decoration: none; transition: all 0.15s;
     }
-    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(124,106,255,0.08); }
+    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(16,185,129,0.08); }
     .brand-mark {
       width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--accent) 0%, #5b4fd4 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #065f46 100%);
       border-radius: 9px; display: flex; align-items: center; justify-content: center;
-      font-size: 17px; box-shadow: 0 0 16px rgba(124,106,255,0.4); flex-shrink: 0;
+      font-size: 17px; box-shadow: 0 0 16px rgba(16,185,129,0.4); flex-shrink: 0;
     }
     .brand-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: 0.3px; }
     .brand-sub  { font-size: 0.62rem; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
@@ -482,7 +512,7 @@ function getCommonCSS(): string {
     .header-divider { width: 1px; height: 28px; background: var(--border2); }
     .header-tag {
       font-size: 0.65rem; font-weight: 600; color: var(--cyan);
-      border: 1px solid rgba(0,229,255,0.3); background: rgba(0,229,255,0.06);
+      border: 1px solid rgba(52,211,153,0.3); background: rgba(52,211,153,0.06);
       padding: 3px 10px; border-radius: 20px; letter-spacing: 2px;
     }
     .layout {
@@ -503,7 +533,7 @@ function getCommonCSS(): string {
       border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 500;
       color: var(--muted); text-decoration: none; transition: all 0.15s ease; margin-bottom: 2px;
     }
-    .nav-link:hover { background: rgba(124,106,255,0.1); color: var(--accent); }
+    .nav-link:hover { background: rgba(16,185,129,0.1); color: var(--accent); }
     .nav-icon { font-size: 0.9rem; flex-shrink: 0; }
     .main-content { display: flex; flex-direction: column; gap: 1.25rem; }
     .section {
@@ -536,16 +566,16 @@ function getCommonCSS(): string {
       border: 1px solid var(--border); border-radius: var(--radius-md);
       padding: 1.1rem 1.2rem; background: var(--bg2);
     }
-    .insight-card.accent-cyan  { background: rgba(0,229,255,0.04);  border-color: rgba(0,229,255,0.2); }
-    .insight-card.accent-pink  { background: rgba(255,107,157,0.04); border-color: rgba(255,107,157,0.2); }
+    .insight-card.accent-cyan { background: rgba(52,211,153,0.04); border-color: rgba(52,211,153,0.2); }
+    .insight-card.accent-pink { background: rgba(245,158,11,0.04);  border-color: rgba(245,158,11,0.2); }
     .insight-label {
       font-size: 0.68rem; font-weight: 700; color: var(--muted);
       margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; letter-spacing: 1px;
     }
     .insight-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .dot-purple { background: var(--accent); box-shadow: 0 0 6px rgba(124,106,255,0.6); }
-    .dot-cyan   { background: var(--cyan);   box-shadow: 0 0 6px rgba(0,229,255,0.6); }
-    .dot-pink   { background: var(--pink);   box-shadow: 0 0 6px rgba(255,107,157,0.6); }
+    .dot-purple { background: var(--accent); box-shadow: 0 0 6px rgba(16,185,129,0.6); }
+    .dot-cyan   { background: var(--cyan);   box-shadow: 0 0 6px rgba(52,211,153,0.6); }
+    .dot-pink   { background: var(--pink);   box-shadow: 0 0 6px rgba(245,158,11,0.6); }
     .insight-text { font-size: 0.83rem; color: var(--muted); line-height: 1.85; }
     details.acc-item > summary { list-style: none; }
     details.acc-item > summary::-webkit-details-marker { display: none; }
@@ -560,17 +590,17 @@ function getCommonCSS(): string {
       background: var(--bg2); cursor: pointer; user-select: none;
       -webkit-tap-highlight-color: transparent; transition: background 0.15s; width: 100%;
     }
-    .acc-title:hover { background: rgba(124,106,255,0.06); }
-    details[open] > .acc-title { background: rgba(124,106,255,0.1); border-bottom: 1px solid var(--border); }
+    .acc-title:hover { background: rgba(16,185,129,0.06); }
+    details[open] > .acc-title { background: rgba(16,185,129,0.1); border-bottom: 1px solid var(--border); }
     .acc-index {
       font-size: 0.6rem; font-weight: 700; color: var(--accent);
-      background: rgba(124,106,255,0.12); border: 1px solid rgba(124,106,255,0.25);
+      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25);
       padding: 2px 7px; border-radius: 4px; flex-shrink: 0; min-width: 28px; text-align: center;
       font-family: 'Space Grotesk', monospace; transition: all 0.15s;
     }
     details[open] > .acc-title .acc-index {
       background: var(--accent); color: #fff; border-color: var(--accent);
-      box-shadow: 0 0 8px rgba(124,106,255,0.5);
+      box-shadow: 0 0 8px rgba(16,185,129,0.5);
     }
     .acc-text { flex: 1; font-size: 0.88rem; font-weight: 500; color: var(--text); line-height: 1.5; }
     .acc-arrow {
@@ -586,7 +616,7 @@ function getCommonCSS(): string {
     .acc-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .acc-tag {
       display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
-      color: var(--cyan); background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.2);
+      color: var(--cyan); background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2);
       padding: 2px 10px; border-radius: 4px; letter-spacing: 0.5px;
     }
     .acc-source-link {
@@ -595,9 +625,7 @@ function getCommonCSS(): string {
       border: 1px solid var(--border2); padding: 2px 10px; border-radius: 4px;
       transition: color 0.15s, border-color 0.15s, background 0.15s; letter-spacing: 0.5px;
     }
-    .acc-source-link:hover {
-      color: var(--accent); border-color: rgba(124,106,255,0.4); background: rgba(124,106,255,0.08);
-    }
+    .acc-source-link:hover { color: var(--accent); border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.08); }
     .empty {
       font-size: 0.82rem; color: var(--muted2); padding: 1.5rem 0;
       text-align: center; border: 1px dashed var(--border);
@@ -609,8 +637,8 @@ function getCommonCSS(): string {
     }
     .footer-left  { font-size: 0.72rem; color: var(--muted2); letter-spacing: 1px; }
     .footer-right {
-      font-size: 0.65rem; color: var(--accent); background: rgba(124,106,255,0.08);
-      border: 1px solid rgba(124,106,255,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
+      font-size: 0.65rem; color: var(--accent); background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
     }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
@@ -636,9 +664,13 @@ function getCommonCSS(): string {
   `;
 }
 
+// ─────────────────────────────────────────────
+// 主流程
+// ─────────────────────────────────────────────
 async function main() {
   const { dateStr, weekDay } = getBeijingDate();
-  console.log('📰 正在生成 ' + dateStr + ' 日报...');
+  console.log('📰 正在生成 ' + dateStr + ' 财经日报...');
+
   const dailyDir = path.join('output', dateStr);
   if (fs.existsSync(dailyDir)) {
     fs.rmSync(dailyDir, { recursive: true, force: true });
@@ -647,6 +679,13 @@ async function main() {
 
   console.log('🌐 正在抓取新闻源...');
   const allArticles = await fetchAllSources(SOURCES);
+  allArticles.forEach(a => {
+    // 打印每个源抓到的数量
+  });
+  const sourceCounts: Record<string, number> = {};
+  allArticles.forEach(a => { sourceCounts[a.source] = (sourceCounts[a.source] || 0) + 1; });
+  Object.entries(sourceCounts).forEach(([src, cnt]) => console.log(`  ✅ ${src}: ${cnt} 条`));
+
   const recent = filterRecent(allArticles);
   console.log('✅ 抓取完成，24小时内有效文章：' + recent.length + ' 篇');
 
@@ -655,16 +694,16 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('📊 正在评分筛选...');
   const filtered = scoreAndFilter(recent);
-  console.log('✅ 筛选完成，送入 AI 处理：' + filtered.length + ' 篇');
+  console.log('📊 评分筛选后送入 AI：' + filtered.length + ' 篇');
 
   console.log('🤖 正在调用 AI 分类整理...');
   const promptJson = articlesToPromptJson(filtered);
-  const jsonStr = await generateSections(promptJson, dateStr);
+  const jsonStr    = await generateSections(promptJson, dateStr);
   console.log('✅ AI 整理完成');
   console.log('📦 AI 原始返回（前500字）：', jsonStr.slice(0, 500));
 
+  // JSON 修复
   let safeJson = jsonStr;
   try {
     JSON.parse(jsonStr);
@@ -680,12 +719,12 @@ async function main() {
   fs.mkdirSync(dailyDir, { recursive: true });
   const dailyHTML = buildDailyHTML(safeJson, dateStr, weekDay, recent.length);
   fs.writeFileSync(path.join(dailyDir, 'index.html'), dailyHTML, 'utf-8');
-  console.log('✅ 日报写入 output/' + dateStr + '/index.html');
+  console.log('✅ 日报写入：output/' + dateStr + '/index.html');
 
-  const allDates = scanHistoryDates();
+  const allDates  = scanHistoryDates();
   const indexHTML = buildIndexHTML(allDates);
   fs.writeFileSync(path.join('output', 'index.html'), indexHTML, 'utf-8');
-  console.log('✅ 首页写入 output/index.html，共 ' + allDates.length + ' 期');
+  console.log('✅ 首页写入：output/index.html，共 ' + allDates.length + ' 期');
 }
 
 main().catch(err => {
