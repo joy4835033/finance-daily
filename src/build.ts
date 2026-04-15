@@ -13,22 +13,21 @@ const client = new OpenAI({
 // 新闻源（国内可用）
 // ─────────────────────────────────────────────
 const SOURCES: RSSSource[] = [
-  // Tier 1：官方权威
-  { name: '新华财经',   url: 'https://feeds.xinhuanet.com/finance/index.xml',            tier: 1 },
-  { name: '人民财经',   url: 'http://finance.people.com.cn/rss/finance.xml',             tier: 1 },
-  { name: '央视财经',   url: 'https://rss.cctv.com/2006/07/25/ARTI1153020800509182.xml', tier: 1 },
+  // Tier 1：新浪财经官方 RSS（真实可用）
+  { name: '新浪财经',     url: 'http://rss.sina.com.cn/news/allnews/finance.xml',                    tier: 1 },
+  { name: '新浪股票',     url: 'http://rss.sina.com.cn/finance/stock/cnnews.xml',                   tier: 1 },
+  { name: '新浪宏观',     url: 'http://rss.sina.com.cn/finance/macro.xml',                          tier: 1 },
 
-  // Tier 2：优质财经媒体
-  { name: '36氪',       url: 'https://36kr.com/feed',                                    tier: 2 },
-  { name: '华尔街见闻', url: 'https://wallstreetcn.com/feed',                            tier: 2 },
-  { name: '财联社',     url: 'https://www.cls.cn/rss',                                   tier: 2 },
-  { name: '证券时报',   url: 'https://www.stcn.com/rss/index.xml',                       tier: 2 },
-  { name: '第一财经',   url: 'https://www.yicai.com/rss/',                               tier: 2 },
+  // Tier 2：RSSHub 路由（需要自建或用公共实例）
+  { name: '21财经',       url: 'https://rsshub.app/21caijing/channel/readnumber',                   tier: 2 },
+  { name: '36氪',         url: 'https://36kr.com/feed',                                             tier: 2 },
+  { name: 'BBC中文财经',  url: 'http://www.bbc.co.uk/zhongwen/simp/business/index.xml',             tier: 2 },
+  { name: '财联社电报',   url: 'https://rsshub.app/cls/telegraph',                                  tier: 2 },
 
-  // Tier 3：补充信源
-  { name: '东方财富',   url: 'https://rss.eastmoney.com/rss/news.aspx',                  tier: 3 },
-  { name: '同花顺财经', url: 'https://news.10jqka.com.cn/rss/index.xml',                 tier: 3 },
-  { name: '金十数据',   url: 'https://www.jin10.com/rss.xml',                            tier: 3 },
+  // Tier 3：补充
+  { name: '新浪美股',     url: 'http://rss.sina.com.cn/finance/usstock/cnnews.xml',                 tier: 3 },
+  { name: '新浪港股',     url: 'http://rss.sina.com.cn/finance/hkstock/cnnews.xml',                 tier: 3 },
+  { name: '半岛财经',     url: 'https://rsshub.app/aljazeera/chinese/news/economy',                 tier: 3 },
 ];
 
 // ─────────────────────────────────────────────
