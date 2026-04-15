@@ -10,24 +10,25 @@ const client = new OpenAI({
 });
 
 // ─────────────────────────────────────────────
-// 新闻源（财经版）
+// 新闻源（国内可用）
 // ─────────────────────────────────────────────
 const SOURCES: RSSSource[] = [
-  // Tier 1：权威官方
-  { name: '人民日报财经', url: 'http://www.people.com.cn/rss/finance.xml',             tier: 1 },
-  { name: '新华社经济',   url: 'http://www.xinhuanet.com/fortune/news_fortune.xml',    tier: 1 },
+  // Tier 1：官方权威
+  { name: '新华财经',   url: 'https://feeds.xinhuanet.com/finance/index.xml',            tier: 1 },
+  { name: '人民财经',   url: 'http://finance.people.com.cn/rss/finance.xml',             tier: 1 },
+  { name: '央视财经',   url: 'https://rss.cctv.com/2006/07/25/ARTI1153020800509182.xml', tier: 1 },
 
   // Tier 2：优质财经媒体
-  { name: '36氪',        url: 'https://36kr.com/feed',                               tier: 2 },
-  { name: '华尔街见闻',   url: 'https://wallstreetcn.com/feed',                       tier: 2 },
-  { name: 'FT中文网',     url: 'https://www.ftchinese.com/rss/feed',                  tier: 2 },
-  { name: '财新网',       url: 'https://weekly.caixin.com/rss/',                      tier: 2 },
-  { name: '澎湃财经',     url: 'https://www.thepaper.cn/rss_service.jsp?col_id=25635', tier: 2 },
+  { name: '36氪',       url: 'https://36kr.com/feed',                                    tier: 2 },
+  { name: '华尔街见闻', url: 'https://wallstreetcn.com/feed',                            tier: 2 },
+  { name: '财联社',     url: 'https://www.cls.cn/rss',                                   tier: 2 },
+  { name: '证券时报',   url: 'https://www.stcn.com/rss/index.xml',                       tier: 2 },
+  { name: '第一财经',   url: 'https://www.yicai.com/rss/',                               tier: 2 },
 
   // Tier 3：补充信源
-  { name: 'BBC中文',      url: 'https://feeds.bbci.co.uk/zhongwen/simp/rss.xml',      tier: 3 },
-  { name: '金十数据',     url: 'https://www.jin10.com/rss.xml',                       tier: 3 },
-  { name: '路透中文',     url: 'https://cn.reuters.com/rssFeed/CNTopNews',            tier: 3 },
+  { name: '东方财富',   url: 'https://rss.eastmoney.com/rss/news.aspx',                  tier: 3 },
+  { name: '同花顺财经', url: 'https://news.10jqka.com.cn/rss/index.xml',                 tier: 3 },
+  { name: '金十数据',   url: 'https://www.jin10.com/rss.xml',                            tier: 3 },
 ];
 
 // ─────────────────────────────────────────────
@@ -90,7 +91,7 @@ function articlesToPromptJson(articles: Article[]): string {
 }
 
 // ─────────────────────────────────────────────
-// AI 生成（一次调用搞定所有分类）
+// AI 生成
 // ─────────────────────────────────────────────
 async function generateSections(rawJson: string, dateStr: string): Promise<string> {
   const prompt =
@@ -240,7 +241,7 @@ function buildDailyHTML(jsonStr: string, dateStr: string, weekDay: string, total
       </div>
       <div class="insight-grid">
         <div class="insight-card">
-          <div class="insight-label"><span class="insight-dot dot-purple"></span>市场情绪</div>
+          <div class="insight-label"><span class="insight-dot dot-blue"></span>市场情绪</div>
           <div class="insight-text">${cat1.marketPulse || '暂无分析'}</div>
         </div>
         <div class="insight-card accent-cyan">
@@ -372,10 +373,10 @@ function buildIndexHTML(dates: { dateStr: string; weekDay: string }[]): string {
     .index-hero { text-align: center; margin-bottom: 2.5rem; }
     .index-hero-mark {
       width: 64px; height: 64px; border-radius: 18px;
-      background: linear-gradient(135deg, var(--accent) 0%, #1a6b3a 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #1e3a8a 100%);
       display: flex; align-items: center; justify-content: center;
       font-size: 28px; margin: 0 auto 1.2rem;
-      box-shadow: 0 0 32px rgba(16,185,129,0.4);
+      box-shadow: 0 0 32px rgba(59,130,246,0.4);
     }
     .index-hero h1 { font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
     .index-hero p  { font-size: 0.85rem; color: var(--muted); letter-spacing: 1px; }
@@ -393,8 +394,8 @@ function buildIndexHTML(dates: { dateStr: string; weekDay: string }[]): string {
       transition: border-color 0.15s, background 0.15s;
       position: relative; overflow: hidden;
     }
-    .date-card:hover { border-color: var(--accent); background: rgba(16,185,129,0.04); }
-    .date-card-latest { border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.06); }
+    .date-card:hover { border-color: var(--accent); background: rgba(59,130,246,0.04); }
+    .date-card-latest { border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.06); }
     .date-card-left { text-align: center; min-width: 48px; }
     .date-card-day  { font-size: 1.8rem; font-weight: 700; color: var(--text); font-family: 'Space Grotesk', monospace; line-height: 1; }
     .date-card-month { font-size: 0.65rem; color: var(--muted); margin-top: 3px; letter-spacing: 1px; }
@@ -403,7 +404,7 @@ function buildIndexHTML(dates: { dateStr: string; weekDay: string }[]): string {
     .date-card-label { font-size: 0.75rem; color: var(--muted); }
     .date-card-badge {
       font-size: 0.6rem; font-weight: 700; color: var(--accent);
-      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3);
+      background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3);
       padding: 2px 8px; border-radius: 20px; letter-spacing: 1px;
     }
     .date-card-arrow { color: var(--muted2); flex-shrink: 0; }
@@ -457,18 +458,27 @@ function scanHistoryDates(): { dateStr: string; weekDay: string }[] {
 }
 
 // ─────────────────────────────────────────────
-// CSS（财经绿色主题）
+// CSS（蓝黑主题）
 // ─────────────────────────────────────────────
 function getCommonCSS(): string {
   return `
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #050a08; --bg2: #0a120d; --card: #0d1a12;
-      --border: #152b1e; --border2: #1e3d2a;
-      --accent: #10b981; --cyan: #34d399; --pink: #f59e0b;
-      --text: #e2f0e8; --muted: #5a8a6e; --muted2: #3a5a48;
-      --radius-lg: 12px; --radius-md: 8px; --radius-sm: 5px;
+      --bg: #080c14;
+      --bg2: #0d1117;
+      --card: #0d1421;
+      --border: #1a2540;
+      --border2: #243050;
+      --accent: #3b82f6;
+      --cyan: #60a5fa;
+      --pink: #f472b6;
+      --text: #e2e8f0;
+      --muted: #4a6080;
+      --muted2: #2d3f5a;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 5px;
     }
     body {
       font-family: 'Noto Sans SC', 'Space Grotesk', -apple-system, sans-serif;
@@ -476,7 +486,7 @@ function getCommonCSS(): string {
       line-height: 1.7; font-size: 14px; -webkit-font-smoothing: antialiased;
     }
     header {
-      background: rgba(5,10,8,0.95); backdrop-filter: blur(16px);
+      background: rgba(8,12,20,0.95); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border); height: 64px;
       display: flex; align-items: center; padding: 0 2rem;
       position: sticky; top: 0; z-index: 200;
@@ -496,12 +506,12 @@ function getCommonCSS(): string {
       border: 1px solid var(--border2); color: var(--muted);
       text-decoration: none; transition: all 0.15s;
     }
-    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(16,185,129,0.08); }
+    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(59,130,246,0.08); }
     .brand-mark {
       width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--accent) 0%, #065f46 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, #1e3a8a 100%);
       border-radius: 9px; display: flex; align-items: center; justify-content: center;
-      font-size: 17px; box-shadow: 0 0 16px rgba(16,185,129,0.4); flex-shrink: 0;
+      font-size: 17px; box-shadow: 0 0 16px rgba(59,130,246,0.4); flex-shrink: 0;
     }
     .brand-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: 0.3px; }
     .brand-sub  { font-size: 0.62rem; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
@@ -512,7 +522,7 @@ function getCommonCSS(): string {
     .header-divider { width: 1px; height: 28px; background: var(--border2); }
     .header-tag {
       font-size: 0.65rem; font-weight: 600; color: var(--cyan);
-      border: 1px solid rgba(52,211,153,0.3); background: rgba(52,211,153,0.06);
+      border: 1px solid rgba(96,165,250,0.3); background: rgba(96,165,250,0.06);
       padding: 3px 10px; border-radius: 20px; letter-spacing: 2px;
     }
     .layout {
@@ -533,7 +543,7 @@ function getCommonCSS(): string {
       border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 500;
       color: var(--muted); text-decoration: none; transition: all 0.15s ease; margin-bottom: 2px;
     }
-    .nav-link:hover { background: rgba(16,185,129,0.1); color: var(--accent); }
+    .nav-link:hover { background: rgba(59,130,246,0.1); color: var(--accent); }
     .nav-icon { font-size: 0.9rem; flex-shrink: 0; }
     .main-content { display: flex; flex-direction: column; gap: 1.25rem; }
     .section {
@@ -566,16 +576,16 @@ function getCommonCSS(): string {
       border: 1px solid var(--border); border-radius: var(--radius-md);
       padding: 1.1rem 1.2rem; background: var(--bg2);
     }
-    .insight-card.accent-cyan { background: rgba(52,211,153,0.04); border-color: rgba(52,211,153,0.2); }
-    .insight-card.accent-pink { background: rgba(245,158,11,0.04);  border-color: rgba(245,158,11,0.2); }
+    .insight-card.accent-cyan { background: rgba(96,165,250,0.04); border-color: rgba(96,165,250,0.2); }
+    .insight-card.accent-pink { background: rgba(244,114,182,0.04); border-color: rgba(244,114,182,0.2); }
     .insight-label {
       font-size: 0.68rem; font-weight: 700; color: var(--muted);
       margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; letter-spacing: 1px;
     }
     .insight-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .dot-purple { background: var(--accent); box-shadow: 0 0 6px rgba(16,185,129,0.6); }
-    .dot-cyan   { background: var(--cyan);   box-shadow: 0 0 6px rgba(52,211,153,0.6); }
-    .dot-pink   { background: var(--pink);   box-shadow: 0 0 6px rgba(245,158,11,0.6); }
+    .dot-blue { background: var(--accent); box-shadow: 0 0 6px rgba(59,130,246,0.6); }
+    .dot-cyan { background: var(--cyan);   box-shadow: 0 0 6px rgba(96,165,250,0.6); }
+    .dot-pink { background: var(--pink);   box-shadow: 0 0 6px rgba(244,114,182,0.6); }
     .insight-text { font-size: 0.83rem; color: var(--muted); line-height: 1.85; }
     details.acc-item > summary { list-style: none; }
     details.acc-item > summary::-webkit-details-marker { display: none; }
@@ -590,17 +600,17 @@ function getCommonCSS(): string {
       background: var(--bg2); cursor: pointer; user-select: none;
       -webkit-tap-highlight-color: transparent; transition: background 0.15s; width: 100%;
     }
-    .acc-title:hover { background: rgba(16,185,129,0.06); }
-    details[open] > .acc-title { background: rgba(16,185,129,0.1); border-bottom: 1px solid var(--border); }
+    .acc-title:hover { background: rgba(59,130,246,0.06); }
+    details[open] > .acc-title { background: rgba(59,130,246,0.1); border-bottom: 1px solid var(--border); }
     .acc-index {
       font-size: 0.6rem; font-weight: 700; color: var(--accent);
-      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25);
+      background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25);
       padding: 2px 7px; border-radius: 4px; flex-shrink: 0; min-width: 28px; text-align: center;
       font-family: 'Space Grotesk', monospace; transition: all 0.15s;
     }
     details[open] > .acc-title .acc-index {
       background: var(--accent); color: #fff; border-color: var(--accent);
-      box-shadow: 0 0 8px rgba(16,185,129,0.5);
+      box-shadow: 0 0 8px rgba(59,130,246,0.5);
     }
     .acc-text { flex: 1; font-size: 0.88rem; font-weight: 500; color: var(--text); line-height: 1.5; }
     .acc-arrow {
@@ -616,7 +626,7 @@ function getCommonCSS(): string {
     .acc-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .acc-tag {
       display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
-      color: var(--cyan); background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.2);
+      color: var(--cyan); background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.2);
       padding: 2px 10px; border-radius: 4px; letter-spacing: 0.5px;
     }
     .acc-source-link {
@@ -625,7 +635,7 @@ function getCommonCSS(): string {
       border: 1px solid var(--border2); padding: 2px 10px; border-radius: 4px;
       transition: color 0.15s, border-color 0.15s, background 0.15s; letter-spacing: 0.5px;
     }
-    .acc-source-link:hover { color: var(--accent); border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.08); }
+    .acc-source-link:hover { color: var(--accent); border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.08); }
     .empty {
       font-size: 0.82rem; color: var(--muted2); padding: 1.5rem 0;
       text-align: center; border: 1px dashed var(--border);
@@ -637,8 +647,8 @@ function getCommonCSS(): string {
     }
     .footer-left  { font-size: 0.72rem; color: var(--muted2); letter-spacing: 1px; }
     .footer-right {
-      font-size: 0.65rem; color: var(--accent); background: rgba(16,185,129,0.08);
-      border: 1px solid rgba(16,185,129,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
+      font-size: 0.65rem; color: var(--accent); background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
     }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
@@ -679,9 +689,6 @@ async function main() {
 
   console.log('🌐 正在抓取新闻源...');
   const allArticles = await fetchAllSources(SOURCES);
-  allArticles.forEach(a => {
-    // 打印每个源抓到的数量
-  });
   const sourceCounts: Record<string, number> = {};
   allArticles.forEach(a => { sourceCounts[a.source] = (sourceCounts[a.source] || 0) + 1; });
   Object.entries(sourceCounts).forEach(([src, cnt]) => console.log(`  ✅ ${src}: ${cnt} 条`));
