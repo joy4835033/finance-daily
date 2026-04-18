@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日财经政经播报 · 2026-04-18</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c14;
+      --bg2: #0d1117;
+      --card: #0d1421;
+      --border: #1a2540;
+      --border2: #243050;
+      --accent: #3b82f6;
+      --cyan: #60a5fa;
+      --pink: #f472b6;
+      --text: #e2e8f0;
+      --muted: #4a6080;
+      --muted2: #2d3f5a;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 5px;
+    }
+    body {
+      font-family: 'Noto Sans SC', 'Space Grotesk', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.7; font-size: 14px; -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background: rgba(8,12,20,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); height: 64px;
+      display: flex; align-items: center; padding: 0 2rem;
+      position: sticky; top: 0; z-index: 200;
+    }
+    header::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--cyan), var(--accent), transparent);
+    }
+    .header-inner {
+      max-width: 1240px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .back-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 8px;
+      border: 1px solid var(--border2); color: var(--muted);
+      text-decoration: none; transition: all 0.15s;
+    }
+    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(59,130,246,0.08); }
+    .brand-mark {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent) 0%, #1e3a8a 100%);
+      border-radius: 9px; display: flex; align-items: center; justify-content: center;
+      font-size: 17px; box-shadow: 0 0 16px rgba(59,130,246,0.4); flex-shrink: 0;
+    }
+    .brand-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: 0.3px; }
+    .brand-sub  { font-size: 0.62rem; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .header-date-block { text-align: right; }
+    .date-main { font-size: 0.88rem; font-weight: 600; color: var(--text); font-family: 'Space Grotesk', monospace; }
+    .date-week { font-size: 0.65rem; color: var(--muted); margin-top: 2px; letter-spacing: 2px; }
+    .header-divider { width: 1px; height: 28px; background: var(--border2); }
+    .header-tag {
+      font-size: 0.65rem; font-weight: 600; color: var(--cyan);
+      border: 1px solid rgba(96,165,250,0.3); background: rgba(96,165,250,0.06);
+      padding: 3px 10px; border-radius: 20px; letter-spacing: 2px;
+    }
+    .layout {
+      max-width: 1240px; margin: 1.75rem auto; padding: 0 1.5rem;
+      display: grid; grid-template-columns: 172px 1fr; gap: 1.5rem; align-items: start;
+    }
+    .sidenav {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 0.75rem; position: sticky; top: 76px;
+    }
+    .sidenav-title {
+      font-size: 0.6rem; font-weight: 700; color: var(--muted2);
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 0 0.5rem 0.65rem; border-bottom: 1px solid var(--border); margin-bottom: 0.6rem;
+    }
+    .nav-link {
+      display: flex; align-items: center; gap: 8px; padding: 0.5rem 0.65rem;
+      border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 500;
+      color: var(--muted); text-decoration: none; transition: all 0.15s ease; margin-bottom: 2px;
+    }
+    .nav-link:hover { background: rgba(59,130,246,0.1); color: var(--accent); }
+    .nav-icon { font-size: 0.9rem; flex-shrink: 0; }
+    .main-content { display: flex; flex-direction: column; gap: 1.25rem; }
+    .section {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.6rem 1.8rem; transition: border-color 0.2s;
+    }
+    .section:hover { border-color: var(--border2); }
+    .sec-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.3rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--border);
+    }
+    .sec-header-left { display: flex; align-items: center; gap: 9px; }
+    .sec-icon { font-size: 1.05rem; }
+    .sec-header h2 { font-size: 0.95rem; font-weight: 700; color: var(--text); letter-spacing: 0.5px; }
+    .sec-badge {
+      font-size: 0.65rem; font-weight: 600; color: var(--muted);
+      background: var(--bg2); border: 1px solid var(--border);
+      padding: 3px 11px; border-radius: 20px; letter-spacing: 1px;
+    }
+    .sub-block { margin-bottom: 1.3rem; }
+    .sub-block:last-child { margin-bottom: 0; }
+    .sub-label {
+      font-size: 0.62rem; font-weight: 700; color: var(--muted2);
+      text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sub-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.1rem; }
+    .insight-card {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: 1.1rem 1.2rem; background: var(--bg2);
+    }
+    .insight-card.accent-cyan { background: rgba(96,165,250,0.04); border-color: rgba(96,165,250,0.2); }
+    .insight-card.accent-pink { background: rgba(244,114,182,0.04); border-color: rgba(244,114,182,0.2); }
+    .insight-label {
+      font-size: 0.68rem; font-weight: 700; color: var(--muted);
+      margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; letter-spacing: 1px;
+    }
+    .insight-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .dot-blue { background: var(--accent); box-shadow: 0 0 6px rgba(59,130,246,0.6); }
+    .dot-cyan { background: var(--cyan);   box-shadow: 0 0 6px rgba(96,165,250,0.6); }
+    .dot-pink { background: var(--pink);   box-shadow: 0 0 6px rgba(244,114,182,0.6); }
+    .insight-text { font-size: 0.83rem; color: var(--muted); line-height: 1.85; }
+    details.acc-item > summary { list-style: none; }
+    details.acc-item > summary::-webkit-details-marker { display: none; }
+    .acc-item {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      margin-bottom: 6px; overflow: hidden; transition: border-color 0.15s;
+    }
+    .acc-item:last-child { margin-bottom: 0; }
+    .acc-item:hover { border-color: var(--accent); }
+    .acc-title {
+      display: flex; align-items: center; gap: 12px; padding: 0.85rem 1.1rem;
+      background: var(--bg2); cursor: pointer; user-select: none;
+      -webkit-tap-highlight-color: transparent; transition: background 0.15s; width: 100%;
+    }
+    .acc-title:hover { background: rgba(59,130,246,0.06); }
+    details[open] > .acc-title { background: rgba(59,130,246,0.1); border-bottom: 1px solid var(--border); }
+    .acc-index {
+      font-size: 0.6rem; font-weight: 700; color: var(--accent);
+      background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25);
+      padding: 2px 7px; border-radius: 4px; flex-shrink: 0; min-width: 28px; text-align: center;
+      font-family: 'Space Grotesk', monospace; transition: all 0.15s;
+    }
+    details[open] > .acc-title .acc-index {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+      box-shadow: 0 0 8px rgba(59,130,246,0.5);
+    }
+    .acc-text { flex: 1; font-size: 0.88rem; font-weight: 500; color: var(--text); line-height: 1.5; }
+    .acc-arrow {
+      color: var(--muted2); transition: transform 0.22s ease, color 0.15s;
+      flex-shrink: 0; display: flex; align-items: center;
+    }
+    details[open] > .acc-title .acc-arrow { transform: rotate(90deg); color: var(--accent); }
+    .acc-body {
+      padding: 1rem 1.1rem 1rem 3.1rem; background: var(--bg);
+      font-size: 0.85rem; color: var(--muted); line-height: 1.9;
+    }
+    .acc-summary { margin-bottom: 0.75rem; }
+    .acc-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .acc-tag {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
+      color: var(--cyan); background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.2);
+      padding: 2px 10px; border-radius: 4px; letter-spacing: 0.5px;
+    }
+    .acc-source-link {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
+      color: var(--muted); text-decoration: none; background: var(--bg2);
+      border: 1px solid var(--border2); padding: 2px 10px; border-radius: 4px;
+      transition: color 0.15s, border-color 0.15s, background 0.15s; letter-spacing: 0.5px;
+    }
+    .acc-source-link:hover { color: var(--accent); border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.08); }
+    .empty {
+      font-size: 0.82rem; color: var(--muted2); padding: 1.5rem 0;
+      text-align: center; border: 1px dashed var(--border);
+      border-radius: var(--radius-md); letter-spacing: 2px;
+    }
+    footer {
+      max-width: 1240px; margin: 0 auto 2.5rem; padding: 1.5rem 1.5rem 0;
+      border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-left  { font-size: 0.72rem; color: var(--muted2); letter-spacing: 1px; }
+    .footer-right {
+      font-size: 0.65rem; color: var(--accent); background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted2); }
+    @media (max-width: 768px) {
+      header { padding: 0 1rem; height: 56px; }
+      .header-divider, .header-tag { display: none; }
+      .layout { grid-template-columns: 1fr; margin: 1rem auto; padding: 0 0.75rem; gap: 0.85rem; }
+      .sidenav { position: static; display: flex; flex-wrap: wrap; gap: 6px; padding: 0.75rem; }
+      .sidenav-title { width: 100%; margin-bottom: 0.2rem; }
+      .nav-link { padding: 0.38rem 0.75rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; font-size: 0.78rem; }
+      .section { padding: 1rem; }
+      .insight-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+      .acc-title { padding: 0.9rem 1rem; }
+      .acc-body  { padding: 0.85rem 0.9rem 0.9rem 2.4rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 1rem 0; margin-bottom: 1.5rem; }
+    }
+    @media (max-width: 400px) {
+      .acc-text { font-size: 0.84rem; }
+      .section  { padding: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <a href="../" class="back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="brand-mark">📰</div>
+      <div>
+        <div class="brand-name">每日财经政经播报</div>
+        <div class="brand-sub">MARKET · POLICY · INSIGHT</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-tag">DAILY BRIEFING</div>
+      <div class="header-divider"></div>
+      <div class="header-date-block">
+        <div class="date-main">2026-04-18</div>
+        <div class="date-week">星期六</div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="layout">
+  <nav class="sidenav">
+    <div class="sidenav-title">栏目导航</div>
+    <a href="#sec-1" class="nav-link"><span class="nav-icon">📋</span><span>今日要点</span></a><a href="#sec-2" class="nav-link"><span class="nav-icon">🌏</span><span>时事要闻</span></a><a href="#sec-3" class="nav-link"><span class="nav-icon">📜</span><span>政策动态</span></a><a href="#sec-4" class="nav-link"><span class="nav-icon">📈</span><span>股市行情</span></a><a href="#sec-5" class="nav-link"><span class="nav-icon">📊</span><span>宏观经济</span></a><a href="#sec-6" class="nav-link"><span class="nav-icon">🥇</span><span>大宗商品</span></a><a href="#sec-7" class="nav-link"><span class="nav-icon">💡</span><span>投资机会</span></a>
+  </nav>
+  <main class="main-content">
+    
+    <section class="section" id="sec-1">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📋</span><h2>今日要点</h2></div>
+        <span class="sec-badge">今日收录 29 篇</span>
+      </div>
+      <div class="sub-block">
+        <div class="sub-label">今日重点摘录</div>
+        
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">京东回应被处罚：全面接受并坚决拥护监管要求，保障食品安全和品质</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">京东因食品安全问题被市场监管总局处罚，官方发文表示全面接受并坚决执行监管要求。此次处罚反映出京东在蛋糕品类的食安管理仍存在不足，公司将升级技术手段优化审核机制。京东将压实主体责任保障食品安全，并欢迎各界监督共同推动行业规范化发展。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3771829021410056?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">Meta计划于5月20日启动今年首轮大规模裁员</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">Meta计划在5月20日启动今年首轮大规模裁员，预计裁撤全球约10%员工近8000人。这家拥有Facebook与Instagram的科技巨头还计划在今年下半年实施进一步裁员，具体细节尚未最终确定。管理层或将根据人工智能技术进展情况调整相关裁员计划。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3771824203530756?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">绿城水务董事长黄东海被立案调查，公司称经营不受重大影响</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">广西绿城水务股份有限公司董事长黄东海被南宁市监察委员会立案调查并采取留置措施。公司于4月16日收到控股股东通知，目前尚未知悉该事项的具体进展及结论。绿城水务表示经营不受重大影响，后续将持续关注并履行信息披露义务。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3771819579507460?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">国内首台，10MeV超紧凑医用回旋加速器研制成功</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">中核集团中国原子能科学研究院自主研制成功国内首台10MeV超紧凑医用回旋加速器。该加速器具备氟-18、镓-68、碳-11等多种常用短寿命医用同位素的生产能力，具有体积小、成本低、维护便捷等突出优势。这是响应国家核医学“一县一科”战略部署的关键装备，可满足短寿命同位素药物“就地生产、即时使用”需求。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3771816162771460?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">霍尔木兹海峡重开 国际金银价格大涨</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">伊朗宣布向所有商船开放霍尔木兹海峡，随后国际黄金、白银价格大幅上涨。纽约商品交易所6月黄金期价涨幅一度接近2%，5月白银期价涨幅一度超过4%。分析认为伊方声明引发国际油价大跌，短期内有助于缓解通胀压力，同时提振市场情绪削弱美元需求。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3771764707066630?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">06</span>
+          <span class="acc-text">小米汽车重磅任命：胡峥楠任CTO，宋钢任参谋长｜36氪独家</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">小米集团通过内部邮件宣布胡峥楠出任小米集团副总裁、汽车部CTO，宋钢出任小米集团汽车部副总裁、参谋长。这是小米汽车自2021年宣布成立以来首次设立CTO岗位，两位新任高管在汽车行业均有超过二十年的从业积累。截至目前小米汽车研发人员接近万人，正加快形成覆盖研发、设计、制造、安全、供应链等全链条人才体系。</p>
+          <div class="acc-footer"><a href="https://36kr.com/p/3770688595214857?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">07</span>
+          <span class="acc-text">Sora负责人离职</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">OpenAI视频生成平台Sora负责人比尔·皮布尔斯宣布离职，公司正在调整战略减少“支线项目”。OpenAI将重点转向编程和企业应用，皮布尔斯的离开正是这一系列调整的一部分。这一变动可能影响Sora项目的未来发展路径和资源分配。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3771676858827523?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">08</span>
+          <span class="acc-text">特朗普称很快发布第一批UFO文件</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">美国总统特朗普在一场集会活动上表示，他领导的政府找到了许多关于不明飞行物“非常有趣”的文件。特朗普宣布第一批UFO文件将很快发布，这一表态引发了公众对政府是否掌握外星生命证据的猜测。UFO文件的发布可能对科学界和公众认知产生重要影响。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3771675938390787?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      </div>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-label"><span class="insight-dot dot-blue"></span>市场情绪</div>
+          <div class="insight-text">今日市场情绪谨慎乐观，霍尔木兹海峡重开缓解地缘紧张，国际金银价格大涨反映避险情绪降温。A股市场关注政策利好，消费品以旧换新政策提振消费板块。科技股受Meta裁员消息影响承压，但AI相关概念股仍受资金青睐。</div>
+        </div>
+        <div class="insight-card accent-cyan">
+          <div class="insight-label"><span class="insight-dot dot-cyan"></span>政策信号</div>
+          <div class="insight-text">政策层面持续发力，江苏发布2026年消费品以旧换新地方自主品类补贴政策，涵盖智能家居、AI终端等15%补贴。公积金使用范围再扩容，超20城打破“只能买房还贷”限制，支持居民消费升级。农业农村部推动猪价合理回升，完善生猪产能综合调控。</div>
+        </div>
+        <div class="insight-card accent-pink">
+          <div class="insight-label"><span class="insight-dot dot-pink"></span>风险预警</div>
+          <div class="insight-text">需警惕Meta大规模裁员可能引发科技行业连锁反应，影响全球就业市场。绿城水务董事长被立案调查显示企业治理风险，投资者需关注相关公司治理结构。国际地缘政治变化可能引发大宗商品价格剧烈波动，特别是能源和贵金属市场。</div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section" id="sec-2">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">🌏</span><h2>时事要闻</h2></div>
+        <span class="sec-badge">5 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">特朗普称很快发布第一批UFO文件</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">美国总统特朗普宣布将很快发布第一批关于不明飞行物的政府文件。特朗普在一场集会活动上表示，他领导的政府找到了许多“非常有趣”的UFO文件。这一表态可能引发公众对政府是否掌握外星生命证据的广泛讨论，并对科学研究和公众认知产生影响。</p>
+          <div class="acc-footer"><span class="acc-tag">美国</span><a href="https://36kr.com/newsflashes/3771675938390787?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">霍尔木兹海峡重开 国际金银价格大涨</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">伊朗宣布向所有商船开放霍尔木兹海峡，随后国际黄金、白银价格大幅上涨。伊朗外长阿拉格齐表示，鉴于黎巴嫩和以色列达成停火，在停火期间对所有商船开放霍尔木兹海峡。这一举措缓解了地缘政治紧张局势，导致国际油价大跌，同时提振了金银等避险资产价格。</p>
+          <div class="acc-footer"><span class="acc-tag">伊朗/国际</span><a href="https://36kr.com/newsflashes/3771764707066630?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">Meta计划于5月20日启动今年首轮大规模裁员</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">Meta计划在5月20日启动今年首轮大规模裁员，预计裁撤全球约10%员工近8000人。这家拥有Facebook与Instagram的科技巨头还计划在今年下半年实施进一步裁员，具体细节尚未最终确定。Meta的裁员计划反映了科技行业面临的结构性调整压力，可能对全球就业市场产生连锁影响。</p>
+          <div class="acc-footer"><span class="acc-tag">美国/全球</span><a href="https://36kr.com/newsflashes/3771824203530756?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">马斯克：SpaceX和特斯拉始终是台积电的重要客户</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">马斯克发文称SpaceX和特斯拉始终是台积电的重要客户，而非通常意义上的竞争对手。台积电无法生产所需数量如此庞大的芯片，所以需要“Terafab”芯片工厂项目。这一表态澄清了市场关于特斯拉与台积电竞争关系的猜测，强调了双方在芯片供应链上的合作关系。</p>
+          <div class="acc-footer"><span class="acc-tag">美国/台湾</span><a href="https://36kr.com/newsflashes/3771765305524741?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">伯克希尔CEO阿贝尔出售前投资组合经理库姆斯管理的股票</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">伯克希尔·哈撒韦公司首席执行官格雷格·阿贝尔已出售此前由沃伦·巴菲特前投资经理托德·库姆斯管理的股票。此举发生在库姆斯于去年12月离开伯克希尔之后，标志着阿贝尔接任CEO以来伯克希尔投资组合迄今最明确的调整之一。阿贝尔不太可能聘请他人协助管理投资组合，显示其独立管理风格。</p>
+          <div class="acc-footer"><span class="acc-tag">美国</span><a href="https://36kr.com/newsflashes/3771814354780929?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-3">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📜</span><h2>政策动态</h2></div>
+        <span class="sec-badge">4 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">江苏发布2026年消费品以旧换新地方自主品类补贴政策</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">江苏省商务厅发布2026年消费品以旧换新地方自主品类补贴政策，自通告之日起实施至2026年12月31日。补贴品类包括智能家居产品、“人工智能+”新一代智能终端、消费医疗产品等，补贴标准为最终销售价格的15%。该政策旨在刺激消费升级，推动绿色智能产品普及，每人每类可补贴1件每件不超过1500元。</p>
+          <div class="acc-footer"><span class="acc-tag">江苏省商务厅</span><a href="https://36kr.com/newsflashes/3771682949989128?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">公积金使用范围再扩容</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">江苏、河北、辽宁、安徽、江西等多个省份的超20座城市已明确出台政策打破公积金“只能买房还贷”的旧限制。各地政策虽有差异但都很接地气，苏州、泰州等地按物业费实际支出提取，年度上限1万元。这一政策调整扩大了公积金使用范围，有助于缓解居民生活压力，促进消费市场活跃。</p>
+          <div class="acc-footer"><span class="acc-tag">地方政府</span><a href="https://36kr.com/newsflashes/3771772554265352?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">猪价有望逐步企稳回升 全年或将呈现“前低后高、窄幅波动”特征</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">农业农村部表示去年7月以来全国能繁母猪存栏量已连续9个月下降，今年3月份新生仔猪数量17个月后首次同比下降。农业农村部将进一步完善生猪产能综合调控政策，采取有力有效举措推动猪价合理回升。政策将加快淘汰低产高龄能繁母猪和体弱仔猪，严控新增产能，推动产能调控、环保监管等政策同向发力。</p>
+          <div class="acc-footer"><span class="acc-tag">农业农村部</span><a href="https://36kr.com/newsflashes/3771780551082502?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">一季度全国完成水利建设投资2070亿元，同比增长4.1%</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">水利部消息显示今年一季度全国水利基础设施建设实现良好开局，1—3月全国实施各类水利项目24231个。一季度完成水利建设投资2070亿元，同比增长4.1%，水利项目施工吸纳就业67万人其中农村劳动力54.5万人。这一数据表明水利投资保持稳定增长，在稳投资、促就业方面发挥重要作用。</p>
+          <div class="acc-footer"><span class="acc-tag">水利部</span><a href="https://36kr.com/newsflashes/3771682220016388?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-4">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📈</span><h2>股市行情</h2></div>
+        <span class="sec-badge">5 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">迈瑞医疗：2026年利润率预计会有小幅下降，但下降幅度将显著收窄</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">迈瑞医疗在业绩说明会上表示2026年利润率预计会有小幅下降，但下降幅度将显著收窄。随着肿标甲功试剂集采开始执行，预计毛利率还会略受影响，同时根据全球最低税规则所得税有效税率需不得低于15%。迈瑞医疗还面临潜在的美元贬值带来的汇兑损失，这些因素共同影响公司利润率表现。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3771820553241091?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">绿城水务董事长黄东海被立案调查，公司称经营不受重大影响</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">广西绿城水务股份有限公司董事长黄东海被南宁市监察委员会立案调查并采取留置措施。公司于4月16日收到控股股东南宁建宁水务投资集团有限责任公司的通知，目前尚未知悉该事项的具体进展及结论。绿城水务公告称公司经营不受重大影响，后续将持续关注并履行信息披露义务。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3771819579507460?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">中信证券：看好激光器芯片龙头公司未来发展潜力</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">中信证券研报指出激光器芯片行业将受益于Scale-out/Scale-up网络超节点扩容和技术代际带来的价值量上升，迎来巨大的发展机遇。激光器芯片是光模块的核心器件，决定光模块的电光转换效率和产品代际，市场需求旺盛且产能短期存在刚性。中信证券看好激光器芯片龙头公司未来的发展潜力，头部厂商的优势正不断凸显。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3771813145756418?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">FF：获4500万美元新融资</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">Faraday Future官微宣布公司已获得美国某机构投资者4500万美元新融资，这是公司近年来达成的最低成本融资交易。截至4月12日FF已累计出货34台机器人，2026年累计出货目标为超1000台。FF计划于5月22日召开年度股东大会，审议一系列旨在支持公司全球EAI战略执行与长期增长的提案。</p>
+          <div class="acc-footer"><span class="acc-tag">美股</span><a href="https://36kr.com/newsflashes/3771782347751942?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">伯克希尔CEO阿贝尔出售前投资组合经理库姆斯管理的股票</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">伯克希尔·哈撒韦公司首席执行官格雷格·阿贝尔已出售此前由沃伦·巴菲特前投资经理托德·库姆斯管理的股票。此举发生在库姆斯于去年12月离开伯克希尔之后，标志着阿贝尔接任CEO以来伯克希尔投资组合迄今最明确的调整之一。市场普遍认为苹果等大额投资通常由巴菲特决策，目前则由阿贝尔接手管理。</p>
+          <div class="acc-footer"><span class="acc-tag">美股</span><a href="https://36kr.com/newsflashes/3771814354780929?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-5">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📊</span><h2>宏观经济</h2></div>
+        <span class="sec-badge">3 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">一季度全国完成水利建设投资2070亿元，同比增长4.1%</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">今年一季度全国水利基础设施建设实现良好开局，1—3月全国实施各类水利项目24231个其中新开工水利项目8348个。一季度完成水利建设投资2070亿元，同比增长4.1%，水利项目施工吸纳就业67万人其中农村劳动力54.5万人。这一数据表明水利投资保持稳定增长态势，在拉动投资和促进就业方面发挥积极作用。</p>
+          <div class="acc-footer"><span class="acc-tag">水利建设投资</span><a href="https://36kr.com/newsflashes/3771682220016388?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">上海航交所：沿海散货综合运价指数止跌回稳</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">上海航运交易所发布的中国沿海(散货)运输市场周度报告显示沿海散货综合运价指数止跌回稳。随着气温攀升电厂耗煤需求超预期，同期新能源发电表现不佳加之天然气发电受限，煤炭市场看涨情绪升温。4月17日中国沿海（散货）综合运价指数报收1200.72点，较上期上涨0.1%，反映航运市场供需关系改善。</p>
+          <div class="acc-footer"><span class="acc-tag">沿海散货运价指数</span><a href="https://36kr.com/newsflashes/3771786414588416?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">猪价有望逐步企稳回升 全年或将呈现“前低后高、窄幅波动”特征</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">农业农村部表示猪价有望逐步企稳回升，全年或将呈现“前低后高、窄幅波动”特征。去年7月以来全国能繁母猪存栏量已连续9个月下降，今年3月份新生仔猪数量17个月后首次同比下降，有利于改善生猪供需。农业农村部将进一步完善生猪产能综合调控政策，采取有力有效举措推动猪价合理回升。</p>
+          <div class="acc-footer"><span class="acc-tag">生猪价格</span><a href="https://36kr.com/newsflashes/3771780551082502?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-6">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">🥇</span><h2>大宗商品</h2></div>
+        <span class="sec-badge">3 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">霍尔木兹海峡重开 国际金银价格大涨</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">伊朗宣布向所有商船开放霍尔木兹海峡，随后国际黄金、白银价格大幅上涨。美国东部时间17日上午纽约商品交易所6月黄金期价涨幅一度接近2%，5月白银期价涨幅一度超过4%。分析认为伊方声明引发国际油价大跌，短期内有助于缓解通胀压力，同时提振市场情绪削弱美元需求推动金银价格上涨。</p>
+          <div class="acc-footer"><span class="acc-tag">黄金/白银</span><a href="https://36kr.com/newsflashes/3771764707066630?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">金饰价格涨到1475元</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国内品牌金饰价格同步大幅上扬，周生生足金饰品报价较前一日上涨，老庙黄金足金饰品报价较前一日上涨，老凤祥足金饰品报1475元/克较前一日1463元/克涨12元。金饰价格上涨反映国际金价上涨传导至零售市场，同时国内消费需求可能对金价形成支撑。投资者需关注金价波动对黄金消费和投资的影响。</p>
+          <div class="acc-footer"><span class="acc-tag">黄金</span><a href="https://36kr.com/newsflashes/3771680228918024?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">马斯克：从物理学第一原理出发，重新设计了锂提炼工艺</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">特斯拉官方表示其锂精炼厂在设计上碳足迹远低于传统硬岩锂精炼厂，采用无酸精炼工艺有助于产出安全的副产品。生产全过程实现水循环利用，每一滴水均在厂区内处理净化，旨在为电池供应链构建锂资源闭环体系。马斯克表示特斯拉工程团队从物理学第一原理出发重新设计了锂提炼工艺，提升锂资源利用效率。</p>
+          <div class="acc-footer"><span class="acc-tag">锂</span><a href="https://36kr.com/newsflashes/3771775440601859?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-7">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">💡</span><h2>投资机会</h2></div>
+        <span class="sec-badge">5 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">激光器芯片行业投资机会</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">激光器芯片行业受益于AI计算集群网络效率提升需求，迎来巨大发展机遇。适合关注科技成长股的投资者，可重点关注激光器芯片龙头公司，这些公司技术优势明显且市场需求旺盛。投资者需注意行业竞争加剧和技术迭代风险，同时关注产能扩张进度和客户订单情况。</p>
+          <div class="acc-footer"><span class="acc-tag">科技/半导体</span><a href="https://36kr.com/newsflashes/3771813145756418?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">消费品以旧换新政策受益板块</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">江苏等地推出消费品以旧换新补贴政策，涵盖智能家居、AI终端等品类。适合关注消费升级主题的投资者，可重点关注智能家居、扫地机器人、数码相机等补贴品类相关上市公司。投资者需注意政策执行效果和消费者实际购买意愿，同时关注其他地区是否跟进类似政策。</p>
+          <div class="acc-footer"><span class="acc-tag">消费/家电</span><a href="https://36kr.com/newsflashes/3771682949989128?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">生猪养殖板块复苏机会</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">农业农村部推动猪价合理回升，能繁母猪存栏连续下降改善供需关系。适合周期股投资者，可关注生猪养殖龙头企业，这些公司有望受益于猪价回升和产能优化。投资者需注意生猪疫情风险和饲料成本波动，同时关注政策执行力度和行业集中度提升趋势。</p>
+          <div class="acc-footer"><span class="acc-tag">农业/养殖</span><a href="https://36kr.com/newsflashes/3771780551082502?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">水利建设投资稳定增长机会</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">一季度全国完成水利建设投资2070亿元同比增长4.1%，水利项目施工吸纳大量就业。适合稳健型投资者，可关注水利工程建设、建材供应等相关上市公司，这些公司受益于政府投资稳定增长。投资者需注意项目回款周期和地方政府财政状况，同时关注后续水利投资政策导向。</p>
+          <div class="acc-footer"><span class="acc-tag">基建/工程</span><a href="https://36kr.com/newsflashes/3771682220016388?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">核医学设备国产化机会</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国内首台10MeV超紧凑医用回旋加速器研制成功，响应国家核医学“一县一科”战略。适合关注医疗设备国产化主题的投资者，可关注核医学设备研发制造相关公司，这些公司受益于政策支持和市场需求增长。投资者需注意技术研发风险和市场竞争格局，同时关注医院采购进度和产品商业化进展。</p>
+          <div class="acc-footer"><span class="acc-tag">医疗设备</span><a href="https://36kr.com/newsflashes/3771816162771460?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+  </main>
+</div>
+<footer>
+  <div class="footer-left">每日财经政经播报 · 2026-04-18 · 星期六</div>
+  <div class="footer-right">Powered by DeepSeek</div>
+</footer>
+</body>
+</html>
