@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日财经政经播报 · 2026-06-05</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c14;
+      --bg2: #0d1117;
+      --card: #0d1421;
+      --border: #1a2540;
+      --border2: #243050;
+      --accent: #3b82f6;
+      --cyan: #60a5fa;
+      --pink: #f472b6;
+      --text: #e2e8f0;
+      --muted: #4a6080;
+      --muted2: #2d3f5a;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 5px;
+    }
+    body {
+      font-family: 'Noto Sans SC', 'Space Grotesk', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.7; font-size: 14px; -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background: rgba(8,12,20,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); height: 64px;
+      display: flex; align-items: center; padding: 0 2rem;
+      position: sticky; top: 0; z-index: 200;
+    }
+    header::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--cyan), var(--accent), transparent);
+    }
+    .header-inner {
+      max-width: 1240px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .back-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 8px;
+      border: 1px solid var(--border2); color: var(--muted);
+      text-decoration: none; transition: all 0.15s;
+    }
+    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(59,130,246,0.08); }
+    .brand-mark {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent) 0%, #1e3a8a 100%);
+      border-radius: 9px; display: flex; align-items: center; justify-content: center;
+      font-size: 17px; box-shadow: 0 0 16px rgba(59,130,246,0.4); flex-shrink: 0;
+    }
+    .brand-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: 0.3px; }
+    .brand-sub  { font-size: 0.62rem; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .header-date-block { text-align: right; }
+    .date-main { font-size: 0.88rem; font-weight: 600; color: var(--text); font-family: 'Space Grotesk', monospace; }
+    .date-week { font-size: 0.65rem; color: var(--muted); margin-top: 2px; letter-spacing: 2px; }
+    .header-divider { width: 1px; height: 28px; background: var(--border2); }
+    .header-tag {
+      font-size: 0.65rem; font-weight: 600; color: var(--cyan);
+      border: 1px solid rgba(96,165,250,0.3); background: rgba(96,165,250,0.06);
+      padding: 3px 10px; border-radius: 20px; letter-spacing: 2px;
+    }
+    .layout {
+      max-width: 1240px; margin: 1.75rem auto; padding: 0 1.5rem;
+      display: grid; grid-template-columns: 172px 1fr; gap: 1.5rem; align-items: start;
+    }
+    .sidenav {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 0.75rem; position: sticky; top: 76px;
+    }
+    .sidenav-title {
+      font-size: 0.6rem; font-weight: 700; color: var(--muted2);
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 0 0.5rem 0.65rem; border-bottom: 1px solid var(--border); margin-bottom: 0.6rem;
+    }
+    .nav-link {
+      display: flex; align-items: center; gap: 8px; padding: 0.5rem 0.65rem;
+      border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 500;
+      color: var(--muted); text-decoration: none; transition: all 0.15s ease; margin-bottom: 2px;
+    }
+    .nav-link:hover { background: rgba(59,130,246,0.1); color: var(--accent); }
+    .nav-icon { font-size: 0.9rem; flex-shrink: 0; }
+    .main-content { display: flex; flex-direction: column; gap: 1.25rem; }
+    .section {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.6rem 1.8rem; transition: border-color 0.2s;
+    }
+    .section:hover { border-color: var(--border2); }
+    .sec-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.3rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--border);
+    }
+    .sec-header-left { display: flex; align-items: center; gap: 9px; }
+    .sec-icon { font-size: 1.05rem; }
+    .sec-header h2 { font-size: 0.95rem; font-weight: 700; color: var(--text); letter-spacing: 0.5px; }
+    .sec-badge {
+      font-size: 0.65rem; font-weight: 600; color: var(--muted);
+      background: var(--bg2); border: 1px solid var(--border);
+      padding: 3px 11px; border-radius: 20px; letter-spacing: 1px;
+    }
+    .sub-block { margin-bottom: 1.3rem; }
+    .sub-block:last-child { margin-bottom: 0; }
+    .sub-label {
+      font-size: 0.62rem; font-weight: 700; color: var(--muted2);
+      text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sub-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.1rem; }
+    .insight-card {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: 1.1rem 1.2rem; background: var(--bg2);
+    }
+    .insight-card.accent-cyan { background: rgba(96,165,250,0.04); border-color: rgba(96,165,250,0.2); }
+    .insight-card.accent-pink { background: rgba(244,114,182,0.04); border-color: rgba(244,114,182,0.2); }
+    .insight-label {
+      font-size: 0.68rem; font-weight: 700; color: var(--muted);
+      margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; letter-spacing: 1px;
+    }
+    .insight-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .dot-blue { background: var(--accent); box-shadow: 0 0 6px rgba(59,130,246,0.6); }
+    .dot-cyan { background: var(--cyan);   box-shadow: 0 0 6px rgba(96,165,250,0.6); }
+    .dot-pink { background: var(--pink);   box-shadow: 0 0 6px rgba(244,114,182,0.6); }
+    .insight-text { font-size: 0.83rem; color: var(--muted); line-height: 1.85; }
+    details.acc-item > summary { list-style: none; }
+    details.acc-item > summary::-webkit-details-marker { display: none; }
+    .acc-item {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      margin-bottom: 6px; overflow: hidden; transition: border-color 0.15s;
+    }
+    .acc-item:last-child { margin-bottom: 0; }
+    .acc-item:hover { border-color: var(--accent); }
+    .acc-title {
+      display: flex; align-items: center; gap: 12px; padding: 0.85rem 1.1rem;
+      background: var(--bg2); cursor: pointer; user-select: none;
+      -webkit-tap-highlight-color: transparent; transition: background 0.15s; width: 100%;
+    }
+    .acc-title:hover { background: rgba(59,130,246,0.06); }
+    details[open] > .acc-title { background: rgba(59,130,246,0.1); border-bottom: 1px solid var(--border); }
+    .acc-index {
+      font-size: 0.6rem; font-weight: 700; color: var(--accent);
+      background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25);
+      padding: 2px 7px; border-radius: 4px; flex-shrink: 0; min-width: 28px; text-align: center;
+      font-family: 'Space Grotesk', monospace; transition: all 0.15s;
+    }
+    details[open] > .acc-title .acc-index {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+      box-shadow: 0 0 8px rgba(59,130,246,0.5);
+    }
+    .acc-text { flex: 1; font-size: 0.88rem; font-weight: 500; color: var(--text); line-height: 1.5; }
+    .acc-arrow {
+      color: var(--muted2); transition: transform 0.22s ease, color 0.15s;
+      flex-shrink: 0; display: flex; align-items: center;
+    }
+    details[open] > .acc-title .acc-arrow { transform: rotate(90deg); color: var(--accent); }
+    .acc-body {
+      padding: 1rem 1.1rem 1rem 3.1rem; background: var(--bg);
+      font-size: 0.85rem; color: var(--muted); line-height: 1.9;
+    }
+    .acc-summary { margin-bottom: 0.75rem; }
+    .acc-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .acc-tag {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
+      color: var(--cyan); background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.2);
+      padding: 2px 10px; border-radius: 4px; letter-spacing: 0.5px;
+    }
+    .acc-source-link {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
+      color: var(--muted); text-decoration: none; background: var(--bg2);
+      border: 1px solid var(--border2); padding: 2px 10px; border-radius: 4px;
+      transition: color 0.15s, border-color 0.15s, background 0.15s; letter-spacing: 0.5px;
+    }
+    .acc-source-link:hover { color: var(--accent); border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.08); }
+    .empty {
+      font-size: 0.82rem; color: var(--muted2); padding: 1.5rem 0;
+      text-align: center; border: 1px dashed var(--border);
+      border-radius: var(--radius-md); letter-spacing: 2px;
+    }
+    footer {
+      max-width: 1240px; margin: 0 auto 2.5rem; padding: 1.5rem 1.5rem 0;
+      border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-left  { font-size: 0.72rem; color: var(--muted2); letter-spacing: 1px; }
+    .footer-right {
+      font-size: 0.65rem; color: var(--accent); background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted2); }
+    @media (max-width: 768px) {
+      header { padding: 0 1rem; height: 56px; }
+      .header-divider, .header-tag { display: none; }
+      .layout { grid-template-columns: 1fr; margin: 1rem auto; padding: 0 0.75rem; gap: 0.85rem; }
+      .sidenav { position: static; display: flex; flex-wrap: wrap; gap: 6px; padding: 0.75rem; }
+      .sidenav-title { width: 100%; margin-bottom: 0.2rem; }
+      .nav-link { padding: 0.38rem 0.75rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; font-size: 0.78rem; }
+      .section { padding: 1rem; }
+      .insight-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+      .acc-title { padding: 0.9rem 1rem; }
+      .acc-body  { padding: 0.85rem 0.9rem 0.9rem 2.4rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 1rem 0; margin-bottom: 1.5rem; }
+    }
+    @media (max-width: 400px) {
+      .acc-text { font-size: 0.84rem; }
+      .section  { padding: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <a href="../" class="back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="brand-mark">📰</div>
+      <div>
+        <div class="brand-name">每日财经政经播报</div>
+        <div class="brand-sub">MARKET · POLICY · INSIGHT</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-tag">DAILY BRIEFING</div>
+      <div class="header-divider"></div>
+      <div class="header-date-block">
+        <div class="date-main">2026-06-05</div>
+        <div class="date-week">星期五</div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="layout">
+  <nav class="sidenav">
+    <div class="sidenav-title">栏目导航</div>
+    <a href="#sec-1" class="nav-link"><span class="nav-icon">📋</span><span>今日要点</span></a><a href="#sec-2" class="nav-link"><span class="nav-icon">🌏</span><span>时事要闻</span></a><a href="#sec-3" class="nav-link"><span class="nav-icon">📜</span><span>政策动态</span></a><a href="#sec-4" class="nav-link"><span class="nav-icon">📈</span><span>股市行情</span></a><a href="#sec-5" class="nav-link"><span class="nav-icon">📊</span><span>宏观经济</span></a><a href="#sec-6" class="nav-link"><span class="nav-icon">🥇</span><span>大宗商品</span></a><a href="#sec-7" class="nav-link"><span class="nav-icon">💡</span><span>投资机会</span></a>
+  </nav>
+  <main class="main-content">
+    
+    <section class="section" id="sec-1">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📋</span><h2>今日要点</h2></div>
+        <span class="sec-badge">今日收录 30 篇</span>
+      </div>
+      <div class="sub-block">
+        <div class="sub-label">今日重点摘录</div>
+        
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">沪深京三市成交额破2万亿，AI与半导体板块活跃</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">沪深京三市成交额超2万亿，较上日此时放量超1700亿。A股三大指数午间休盘涨跌不一，沪指涨0.43%，石油化工及海运板块领涨，半导体与电力板块跌幅居前。市场情绪回暖，资金从前期涨幅较大的电力板块流向化工与运输板块，显示板块轮动加速，投资者应注意高位板块回调风险。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3839823329954057?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">黄仁勋透露HBM4供应资格与韩国产业链合作计划</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">英伟达CEO黄仁勋表示三家内存制造商均已获得供应HBM4的资格，英伟达将灵活调配内存供应。他还计划与现代、三星和SK集团高管会晤，讨论供应链协调并启动韩国研发中心招聘。此举将进一步强化英伟达存储供应保障，同时推动韩国半导体产业链深度合作，利好国产存储与设备企业。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3839815119374851?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">恒生科技指数午间收跌，南向资金逆势净买入</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">恒指午间休盘跌0.81%，恒生科技指数跌1.23%，交通运输与国防军工板块逆势领涨，中远海控涨超7%。半导体及硬件设备板块承压，胜宏科技跌超9%，南向资金净买入44.4亿港元。港股短期承压但南向资金持续流入显示长期配置意愿，科技板块回调或带来布局机会。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3839756609210884?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">腾讯云AI大会：TokenHub日消耗量达5万亿，发布多项AI新品</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">腾讯云AI产业应用大会上透露，TokenHub上线3个月每月翻倍增长，日Token消耗量已突破5万亿。姚顺雨判断AI将走向多模态与具身智能等多元方向，行业仍处于早期阶段。同时华为云发布行业AI梦工厂四大专区，腾讯与华为竞相推进AI基础设施，预示AI产业链上游算力需求将持续爆发。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3839787696491008?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">微信与手机厂商合作推出AI助手，打通A2A协作机制</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">腾讯客服确认微信正与华为、小米、荣耀、OPPO、vivo合作推出A2A助手能力，实现通过手机AI助手发起微信音视频通话或发消息。该功能基于Agent-to-Agent协作机制，数据安全通过双重授权保障。区别于豆包等GUI agent路线，微信AI选择开放接口生态，或重塑移动端AI应用竞争格局。</p>
+          <div class="acc-footer"><a href="https://36kr.com/p/3839575253993985?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">06</span>
+          <span class="acc-text">苹果Vision Pro产品线被移除，全面转向AI眼镜</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">知名分析师郭明錤发布供应链调查称苹果已正式移除Vision Pro系列后续产品，资源全面转向AI眼镜品类，无显示屏AI眼镜预计2027年推出。该调整已获下一任CEO批准，同时OpenAI首席财务官透露今年年底前发布AI设备。消费电子巨头集体转向轻量级AI眼镜，VR/AR行业或面临路线修正。</p>
+          <div class="acc-footer"><a href="https://36kr.com/p/3839505332161026?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      </div>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-label"><span class="insight-dot dot-blue"></span>市场情绪</div>
+          <div class="insight-text">今日A股成交额突破2万亿，沪指小幅上涨，资金从电力科技流向化工海运，板块轮动明显。港股受科技股拖累下跌，但南向资金逆势净买入44.4亿港元。AI及半导体仍是市场焦点，但高位股出现抛压，投资者需警惕短期波动。</div>
+        </div>
+        <div class="insight-card accent-cyan">
+          <div class="insight-label"><span class="insight-dot dot-cyan"></span>政策信号</div>
+          <div class="insight-text">全国首张无目的地海上游出入境通行证在上海签发，免签短途邮轮出海政策落地，利好邮轮旅游产业。同时宁夏烽燧750千伏输变电工程投运，标志着西北电网升级提速，新能源消纳能力增强。</div>
+        </div>
+        <div class="insight-card accent-pink">
+          <div class="insight-label"><span class="insight-dot dot-pink"></span>风险预警</div>
+          <div class="insight-text">本田5月中国销量同比暴跌48.68%，合资车份额加速萎缩，警惕燃油车产业链风险。恒生科技指数跌超1%，半导体板块资金流出明显，高位AI概念股面临调整压力。印度央行维持利率不变，新兴市场流动性分化加剧。</div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section" id="sec-2">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">🌏</span><h2>时事要闻</h2></div>
+        <span class="sec-badge">4 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">黄仁勋计划与现代、三星、SK集团高管会晤，协调供应链</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">英伟达CEO黄仁勋表示计划与现代汽车集团、三星电子和SK集团高管会晤，讨论供应链协调问题。英伟达将开始为韩国研发中心招聘员工，加强当地研发能力。此举将进一步巩固英伟达在AI芯片领域的全球供应链优势，同时提升韩国半导体产业链的战略地位。</p>
+          <div class="acc-footer"><span class="acc-tag">韩国</span><a href="https://36kr.com/newsflashes/3839805882599939?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">印度央行维持基准利率在5.25%不变，符合预期</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">印度央行维持基准利率在5.25%不变，符合市场预期。印度通胀压力仍存但经济增长放缓，央行选择按兵不动以观察数据。此举保持印度卢比汇率稳定，但可能延缓经济复苏步伐，新兴市场货币政策分化加剧。</p>
+          <div class="acc-footer"><span class="acc-tag">印度</span><a href="https://36kr.com/newsflashes/3839808961464579?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">本田5月中国汽车销量同比暴跌48.68%，合资品牌持续承压</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">本田中国发布5月终端汽车销量为28279辆，同比下降48.68%，1-5月累计销量173344辆。销量大幅下滑主要受电动化转型迟缓及中国品牌竞争加剧影响。合资汽车品牌在华市场份额持续萎缩，传统燃油车产业链面临严峻挑战。</p>
+          <div class="acc-footer"><span class="acc-tag">中国</span><a href="https://36kr.com/newsflashes/3839716335438337?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">鸿海与SK集团深化AI基础设施合作</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">鸿海董事长刘扬伟近日会见韩国SK集团会长崔泰源，双方同意深化AI基础设施领域合作。此前鸿海已与英伟达等企业共建AI算力中心。全球AI军备竞赛推动算力基建需求激增，富士康等代工巨头加速向高附加值AI基础设施转型。</p>
+          <div class="acc-footer"><span class="acc-tag">韩国</span><a href="https://36kr.com/p/3838652242823687?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-3">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📜</span><h2>政策动态</h2></div>
+        <span class="sec-badge">2 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">上海集成电路产投基金入股此芯科技，加码芯片设计</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">上海集成电路产业投资基金二期投资此芯科技，注册资本由约1056.8万增至约1311.8万人民币。此芯科技主营集成电路设计与软件开发，成立于2021年。政府产业资本持续注资本土芯片企业，体现国家对半导体自主可控的战略支持，利好相关产业链。</p>
+          <div class="acc-footer"><span class="acc-tag">上海集成电路产业投资基金</span><a href="https://36kr.com/newsflashes/3839746148043008?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">宁德烽燧750千伏输变电工程投运，提升北部电网枢纽能力</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">宁夏烽燧750千伏输变电工程正式投运，标志宁夏北部电网从区域供电末端升级为重要枢纽。该工程由国网宁夏电力建设，提升新能源外送能力。智能电网基础设施建设加速，为西部清洁能源消纳和东送提供支撑，利好电力设备及新能源运营商。</p>
+          <div class="acc-footer"><span class="acc-tag">国家电网</span><a href="https://36kr.com/newsflashes/3839776650381571?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-4">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📈</span><h2>股市行情</h2></div>
+        <span class="sec-badge">3 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">A股午盘涨跌不一，沪指涨0.43%，电力股下挫</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">A股三大指数午间休盘涨跌不一，沪指涨0.43%，深成指跌0.24%，创业板指跌0.82%。石油化工、海运、化纤板块领涨，泰和新材、凤凰航运涨停；电脑硬件、半导体、电力板块跌幅居前，江波龙、东微半导跌超6%。市场呈现结构性分化，周期股崛起而科技股回调。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3839727143291136?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">半日主力资金净流入通信股，抛售汽车板块</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">主力资金早间净流入通信、基础化工等板块，净流出公用事业、汽车板块。京东方A、烽火通信、中兴通讯获净流入63.77亿、31.51亿、25.79亿元；兆易创新、佰维存储、胜宏科技遭抛售23.45亿、18.76亿、15.74亿元。资金从前期涨幅较大的存储芯片流向通信与化工，显示板块轮动加速。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3839733651720456?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">恒生科技指数跌1.23%，半导体板块跌幅居前</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">恒指午间休盘跌0.81%，恒生科技指数跌1.23%。交通运输、国防军工板块领涨，中远海控涨超7%，中航科工涨超1%；半导体、硬件设备板块跌幅居前，胜宏科技跌超9%，澜起科技跌超7%。南向资金净买入44.4亿港元，显示资金逢低吸纳意愿强。</p>
+          <div class="acc-footer"><span class="acc-tag">港股</span><a href="https://36kr.com/newsflashes/3839756609210884?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-5">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📊</span><h2>宏观经济</h2></div>
+        <span class="sec-badge">0 条</span>
+      </div>
+      <div class="empty">· 暂无相关内容 ·</div>
+    </section>
+    <section class="section" id="sec-6">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">🥇</span><h2>大宗商品</h2></div>
+        <span class="sec-badge">1 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">沪深京三市成交额超2万亿，量能放大1700亿</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">沪深京三市成交额超2万亿，较上日此时放量超1700亿。成交额放大主要受化工、海运等周期板块活跃带动，AI板块亦贡献部分成交量。市场情绪回暖，量能持续放大显示增量资金入场，但需警惕高位题材过热风险。</p>
+          <div class="acc-footer"><span class="acc-tag">成交量</span><a href="https://36kr.com/newsflashes/3839823329954057?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-7">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">💡</span><h2>投资机会</h2></div>
+        <span class="sec-badge">5 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">关注港股南向资金持续流入，科技股回调或是布局时机</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">恒生科技指数今日回调超1%，但南向资金净买入44.4亿港元，显示内地资金逢低布局意愿强烈。适合有港股投资渠道的投资者关注恒生科技ETF或优质科技龙头，注意控制仓位，分批介入。风险点在于美联储政策不确定性可能继续压制港股流动性。</p>
+          <div class="acc-footer"><span class="acc-tag">港股科技</span><a href="https://36kr.com/newsflashes/3839756609210884?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">AI应用场景持续扩展，关注腾讯与华为生态链机会</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">腾讯云TokenHub日消耗量突破5万亿，微信与手机厂商合作AI助手，华为云发布行业AI梦工厂四大专区。AI从模型训练向应用落地加速，适合关注AI应用产业链中的算力、数据、合作方企业。注意AI板块估值已高，优选有业绩支撑的标的，警惕概念炒作。</p>
+          <div class="acc-footer"><span class="acc-tag">AI应用</span><a href="https://36kr.com/p/3839575253993985?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">苹果Vision Pro转向AI眼镜，消费电子新方向值得跟踪</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">苹果正式移除Vision Pro后续产品，资源全面转向AI眼镜，预计2027年推出。此外OpenAI称年底发布AI设备。适合关注消费电子产业链中涉及AI眼镜光学、显示、芯片的标的，如舜宇光学、歌尔股份等。注意产品尚处早期，量产时间存在不确定性，需持续跟踪供应链订单。</p>
+          <div class="acc-footer"><span class="acc-tag">AI眼镜</span><a href="https://36kr.com/p/3839505332161026?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">国产芯片设计验证自动化赛道获融资，关注半导体EDA机会</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">智维创芯完成数千万元天使轮融资，其芯片验证工具可将效率提升10倍。芯片设计复杂度提升验证环节成瓶颈，EDA及设计自动化工具需求爆发。适合关注半导体EDA及IP公司，如华大九天、概伦电子。风险在于该领域技术壁垒高，业绩释放需要时间，短期波动较大。</p>
+          <div class="acc-footer"><span class="acc-tag">半导体设计工具</span><a href="https://36kr.com/p/3838488706370054?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">线控底盘融资活跃，智能驾驶产业链机会显现</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">前华为员工创立的毫秒智控完成数千万元天使+轮融资，专注线控转向系统。线控底盘是实现高阶自动驾驶的关键执行层，技术壁垒高。适合关注智能驾驶产业链中的底盘、执行器供应商，如伯特利、德赛西威。注意线控底盘处于渗透早期，成本较高，需跟踪量产定点情况。</p>
+          <div class="acc-footer"><span class="acc-tag">智能驾驶底盘</span><a href="https://36kr.com/p/3839600052898054?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+  </main>
+</div>
+<footer>
+  <div class="footer-left">每日财经政经播报 · 2026-06-05 · 星期五</div>
+  <div class="footer-right">Powered by DeepSeek</div>
+</footer>
+</body>
+</html>
