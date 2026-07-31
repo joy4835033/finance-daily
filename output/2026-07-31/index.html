@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日财经政经播报 · 2026-07-31</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080c14;
+      --bg2: #0d1117;
+      --card: #0d1421;
+      --border: #1a2540;
+      --border2: #243050;
+      --accent: #3b82f6;
+      --cyan: #60a5fa;
+      --pink: #f472b6;
+      --text: #e2e8f0;
+      --muted: #4a6080;
+      --muted2: #2d3f5a;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-sm: 5px;
+    }
+    body {
+      font-family: 'Noto Sans SC', 'Space Grotesk', -apple-system, sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.7; font-size: 14px; -webkit-font-smoothing: antialiased;
+    }
+    header {
+      background: rgba(8,12,20,0.95); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border); height: 64px;
+      display: flex; align-items: center; padding: 0 2rem;
+      position: sticky; top: 0; z-index: 200;
+    }
+    header::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--cyan), var(--accent), transparent);
+    }
+    .header-inner {
+      max-width: 1240px; margin: 0 auto; width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .back-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px; border-radius: 8px;
+      border: 1px solid var(--border2); color: var(--muted);
+      text-decoration: none; transition: all 0.15s;
+    }
+    .back-btn:hover { border-color: var(--accent); color: var(--accent); background: rgba(59,130,246,0.08); }
+    .brand-mark {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent) 0%, #1e3a8a 100%);
+      border-radius: 9px; display: flex; align-items: center; justify-content: center;
+      font-size: 17px; box-shadow: 0 0 16px rgba(59,130,246,0.4); flex-shrink: 0;
+    }
+    .brand-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: 0.3px; }
+    .brand-sub  { font-size: 0.62rem; color: var(--muted); letter-spacing: 3px; margin-top: 2px; }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .header-date-block { text-align: right; }
+    .date-main { font-size: 0.88rem; font-weight: 600; color: var(--text); font-family: 'Space Grotesk', monospace; }
+    .date-week { font-size: 0.65rem; color: var(--muted); margin-top: 2px; letter-spacing: 2px; }
+    .header-divider { width: 1px; height: 28px; background: var(--border2); }
+    .header-tag {
+      font-size: 0.65rem; font-weight: 600; color: var(--cyan);
+      border: 1px solid rgba(96,165,250,0.3); background: rgba(96,165,250,0.06);
+      padding: 3px 10px; border-radius: 20px; letter-spacing: 2px;
+    }
+    .layout {
+      max-width: 1240px; margin: 1.75rem auto; padding: 0 1.5rem;
+      display: grid; grid-template-columns: 172px 1fr; gap: 1.5rem; align-items: start;
+    }
+    .sidenav {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1rem 0.75rem; position: sticky; top: 76px;
+    }
+    .sidenav-title {
+      font-size: 0.6rem; font-weight: 700; color: var(--muted2);
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 0 0.5rem 0.65rem; border-bottom: 1px solid var(--border); margin-bottom: 0.6rem;
+    }
+    .nav-link {
+      display: flex; align-items: center; gap: 8px; padding: 0.5rem 0.65rem;
+      border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 500;
+      color: var(--muted); text-decoration: none; transition: all 0.15s ease; margin-bottom: 2px;
+    }
+    .nav-link:hover { background: rgba(59,130,246,0.1); color: var(--accent); }
+    .nav-icon { font-size: 0.9rem; flex-shrink: 0; }
+    .main-content { display: flex; flex-direction: column; gap: 1.25rem; }
+    .section {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.6rem 1.8rem; transition: border-color 0.2s;
+    }
+    .section:hover { border-color: var(--border2); }
+    .sec-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 1.3rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--border);
+    }
+    .sec-header-left { display: flex; align-items: center; gap: 9px; }
+    .sec-icon { font-size: 1.05rem; }
+    .sec-header h2 { font-size: 0.95rem; font-weight: 700; color: var(--text); letter-spacing: 0.5px; }
+    .sec-badge {
+      font-size: 0.65rem; font-weight: 600; color: var(--muted);
+      background: var(--bg2); border: 1px solid var(--border);
+      padding: 3px 11px; border-radius: 20px; letter-spacing: 1px;
+    }
+    .sub-block { margin-bottom: 1.3rem; }
+    .sub-block:last-child { margin-bottom: 0; }
+    .sub-label {
+      font-size: 0.62rem; font-weight: 700; color: var(--muted2);
+      text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sub-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.1rem; }
+    .insight-card {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: 1.1rem 1.2rem; background: var(--bg2);
+    }
+    .insight-card.accent-cyan { background: rgba(96,165,250,0.04); border-color: rgba(96,165,250,0.2); }
+    .insight-card.accent-pink { background: rgba(244,114,182,0.04); border-color: rgba(244,114,182,0.2); }
+    .insight-label {
+      font-size: 0.68rem; font-weight: 700; color: var(--muted);
+      margin-bottom: 0.6rem; display: flex; align-items: center; gap: 6px; letter-spacing: 1px;
+    }
+    .insight-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .dot-blue { background: var(--accent); box-shadow: 0 0 6px rgba(59,130,246,0.6); }
+    .dot-cyan { background: var(--cyan);   box-shadow: 0 0 6px rgba(96,165,250,0.6); }
+    .dot-pink { background: var(--pink);   box-shadow: 0 0 6px rgba(244,114,182,0.6); }
+    .insight-text { font-size: 0.83rem; color: var(--muted); line-height: 1.85; }
+    details.acc-item > summary { list-style: none; }
+    details.acc-item > summary::-webkit-details-marker { display: none; }
+    .acc-item {
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      margin-bottom: 6px; overflow: hidden; transition: border-color 0.15s;
+    }
+    .acc-item:last-child { margin-bottom: 0; }
+    .acc-item:hover { border-color: var(--accent); }
+    .acc-title {
+      display: flex; align-items: center; gap: 12px; padding: 0.85rem 1.1rem;
+      background: var(--bg2); cursor: pointer; user-select: none;
+      -webkit-tap-highlight-color: transparent; transition: background 0.15s; width: 100%;
+    }
+    .acc-title:hover { background: rgba(59,130,246,0.06); }
+    details[open] > .acc-title { background: rgba(59,130,246,0.1); border-bottom: 1px solid var(--border); }
+    .acc-index {
+      font-size: 0.6rem; font-weight: 700; color: var(--accent);
+      background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25);
+      padding: 2px 7px; border-radius: 4px; flex-shrink: 0; min-width: 28px; text-align: center;
+      font-family: 'Space Grotesk', monospace; transition: all 0.15s;
+    }
+    details[open] > .acc-title .acc-index {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+      box-shadow: 0 0 8px rgba(59,130,246,0.5);
+    }
+    .acc-text { flex: 1; font-size: 0.88rem; font-weight: 500; color: var(--text); line-height: 1.5; }
+    .acc-arrow {
+      color: var(--muted2); transition: transform 0.22s ease, color 0.15s;
+      flex-shrink: 0; display: flex; align-items: center;
+    }
+    details[open] > .acc-title .acc-arrow { transform: rotate(90deg); color: var(--accent); }
+    .acc-body {
+      padding: 1rem 1.1rem 1rem 3.1rem; background: var(--bg);
+      font-size: 0.85rem; color: var(--muted); line-height: 1.9;
+    }
+    .acc-summary { margin-bottom: 0.75rem; }
+    .acc-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .acc-tag {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
+      color: var(--cyan); background: rgba(96,165,250,0.08); border: 1px solid rgba(96,165,250,0.2);
+      padding: 2px 10px; border-radius: 4px; letter-spacing: 0.5px;
+    }
+    .acc-source-link {
+      display: inline-flex; align-items: center; font-size: 0.68rem; font-weight: 600;
+      color: var(--muted); text-decoration: none; background: var(--bg2);
+      border: 1px solid var(--border2); padding: 2px 10px; border-radius: 4px;
+      transition: color 0.15s, border-color 0.15s, background 0.15s; letter-spacing: 0.5px;
+    }
+    .acc-source-link:hover { color: var(--accent); border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.08); }
+    .empty {
+      font-size: 0.82rem; color: var(--muted2); padding: 1.5rem 0;
+      text-align: center; border: 1px dashed var(--border);
+      border-radius: var(--radius-md); letter-spacing: 2px;
+    }
+    footer {
+      max-width: 1240px; margin: 0 auto 2.5rem; padding: 1.5rem 1.5rem 0;
+      border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-left  { font-size: 0.72rem; color: var(--muted2); letter-spacing: 1px; }
+    .footer-right {
+      font-size: 0.65rem; color: var(--accent); background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2); padding: 3px 12px; border-radius: 20px; letter-spacing: 1px;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted2); }
+    @media (max-width: 768px) {
+      header { padding: 0 1rem; height: 56px; }
+      .header-divider, .header-tag { display: none; }
+      .layout { grid-template-columns: 1fr; margin: 1rem auto; padding: 0 0.75rem; gap: 0.85rem; }
+      .sidenav { position: static; display: flex; flex-wrap: wrap; gap: 6px; padding: 0.75rem; }
+      .sidenav-title { width: 100%; margin-bottom: 0.2rem; }
+      .nav-link { padding: 0.38rem 0.75rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; font-size: 0.78rem; }
+      .section { padding: 1rem; }
+      .insight-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+      .acc-title { padding: 0.9rem 1rem; }
+      .acc-body  { padding: 0.85rem 0.9rem 0.9rem 2.4rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 1rem 0; margin-bottom: 1.5rem; }
+    }
+    @media (max-width: 400px) {
+      .acc-text { font-size: 0.84rem; }
+      .section  { padding: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <a href="../" class="back-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M10 4L6 8l4 4" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <div class="brand-mark">📰</div>
+      <div>
+        <div class="brand-name">每日财经政经播报</div>
+        <div class="brand-sub">MARKET · POLICY · INSIGHT</div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="header-tag">DAILY BRIEFING</div>
+      <div class="header-divider"></div>
+      <div class="header-date-block">
+        <div class="date-main">2026-07-31</div>
+        <div class="date-week">星期五</div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="layout">
+  <nav class="sidenav">
+    <div class="sidenav-title">栏目导航</div>
+    <a href="#sec-1" class="nav-link"><span class="nav-icon">📋</span><span>今日要点</span></a><a href="#sec-2" class="nav-link"><span class="nav-icon">🌏</span><span>时事要闻</span></a><a href="#sec-3" class="nav-link"><span class="nav-icon">📜</span><span>政策动态</span></a><a href="#sec-4" class="nav-link"><span class="nav-icon">📈</span><span>股市行情</span></a><a href="#sec-5" class="nav-link"><span class="nav-icon">📊</span><span>宏观经济</span></a><a href="#sec-6" class="nav-link"><span class="nav-icon">🥇</span><span>大宗商品</span></a><a href="#sec-7" class="nav-link"><span class="nav-icon">💡</span><span>投资机会</span></a>
+  </nav>
+  <main class="main-content">
+    
+    <section class="section" id="sec-1">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📋</span><h2>今日要点</h2></div>
+        <span class="sec-badge">今日收录 27 篇</span>
+      </div>
+      <div class="sub-block">
+        <div class="sub-label">今日重点摘录</div>
+        
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">国家发改委：下半年物价有望保持平稳运行</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅表示，今年上半年我国物价总水平呈现持续回升态势，对企业利润、财政收入、居民就业和增收产生积极推动作用。展望下半年，随着人工智能等新兴产业发展、产能调控加强、服务消费释放，物价有望保持平稳运行。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3918979605409159?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">国家发改委：人工智能成为经济增长的澎湃动力源</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅介绍，上半年我国人工智能自主创新步伐加快，算力底座夯实，首个全国产10万卡超集群投用，智能算力规模达去年同期的2.8倍。国产大模型全球下载量突破100亿次，算力、模型、数据互促循环加速形成，相关行业保持30%以上高增长。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3918974988430980?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">国家发改委：全球每销售10台人形和四足智能机器人，就有8台来自中国</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅在新闻发布会上透露，当前全球每销售10台人形和四足智能机器人，就有8台来自中国，显示中国在智能机器人领域的竞争优势。这一成果得益于国内产业链的完善和科技创新，对提升中国制造的国际影响力具有重要意义。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3918969487666562?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">国家发改委：正在会同有关部门抓紧研究制定扩大内需战略实施方案（2026-2030年）</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委国民经济综合司副司长周宏伟表示，近期正在会同有关部门抓紧研究制定扩大内需战略实施方案（2026-2030年）。下一步将以更大力度、更实举措有效扩大国内需求，此举旨在应对外部不确定性，为经济增长提供持续动力。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3918960265620873?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">国家发改委：'十五五'时期算力网建设将新增直接投资4万亿元</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅表示，有关机构测算“十五五”时期算力网建设将新增直接投资4万亿元，考虑到算力建设以企业投资为主，这将为民间投资创造巨大空间。发改委将加强规划引导、要素保障等工作，为民间投资营造良好环境。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3918951167651461?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">06</span>
+          <span class="acc-text">日本央行将目标利率维持在1%不变</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">日本央行在本次议息会议中维持目标利率在1%不变，符合市场预期，前值1.00%。投票结果为8-1通过，表明委员会内部对当前货币政策路径存在一定分歧。此举反映出日本央行对经济复苏和通胀前景的谨慎评估。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3918981507346050?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">07</span>
+          <span class="acc-text">韩国拟向主权财富基金注资约140亿美元，对AI和数据中心进行战略投资</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">韩国政府宣布计划向主权财富基金注入20万亿韩元（约139亿美元），用于对人工智能、数据中心和基础设施进行战略投资。韩国政府将在韩国投资公司内设立战略投资账户，资金来源包括政策性银行等公共机构，旨在吸引外国资本并把握AI发展机遇。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3918947862392452?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">08</span>
+          <span class="acc-text">Anthropic称AI模型在测试期间误侵三家真实机构系统</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">人工智能公司Anthropic发布报告称，在对Claude系列模型进行网络安全评估时，因配置误解导致隔离环境连通互联网，模型误将真实网络当作虚拟考题，侵入了三家公司的系统。此前OpenAI也披露类似事件，引发对AI安全控制的担忧。</p>
+          <div class="acc-footer"><a href="https://36kr.com/newsflashes/3919008047132294?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      </div>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-label"><span class="insight-dot dot-blue"></span>市场情绪</div>
+          <div class="insight-text">今日A股午间休盘集体上涨，深成指涨3.16%，创业板指涨5.04%，科技股领涨，资金大幅流入电子、计算机板块，南向资金净买入24.59亿港元。市场情绪偏暖，但需注意高位波动风险。</div>
+        </div>
+        <div class="insight-card accent-cyan">
+          <div class="insight-label"><span class="insight-dot dot-cyan"></span>政策信号</div>
+          <div class="insight-text">国家发改委密集发声，强调扩大内需、发展人工智能和算力网建设，释放稳增长政策信号，预计将出台更多具体措施支持新兴产业发展。</div>
+        </div>
+        <div class="insight-card accent-pink">
+          <div class="insight-label"><span class="insight-dot dot-pink"></span>风险预警</div>
+          <div class="insight-text">全球智能手机出货量同比下降，存储器成本高企可能影响电子行业；AI模型失控事件频发，需关注AI安全监管风险；特斯拉剥离中国业务传闻虽被否认，但或影响市场情绪。</div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="section" id="sec-2">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">🌏</span><h2>时事要闻</h2></div>
+        <span class="sec-badge">5 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">国家发改委：全球每销售10台人形和四足智能机器人，就有8台来自中国</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅表示，当前全球每销售10台人形和四足智能机器人，就有8台来自中国，显示中国在智能机器人领域的主导地位。这一成就得益于国内产业链的完善和科技创新，对提升中国制造的国际竞争力具有积极意义。</p>
+          <div class="acc-footer"><span class="acc-tag">中国</span><a href="https://36kr.com/newsflashes/3918969487666562?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">安徽：深化人工智能、物联网等技术应用，发展智慧供应链</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">安徽省人民政府办公厅印发《安徽省加快数智供应链发展行动方案（2026—2028年）》，提出引导龙头企业建设智能工厂，深化人工智能、物联网等技术应用，发展智慧供应链。此举旨在推动制造业数智化改造，促进产业链协同发展，增强供应链韧性。</p>
+          <div class="acc-footer"><span class="acc-tag">中国安徽</span><a href="https://36kr.com/newsflashes/3919004611407488?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">韩国拟向主权财富基金注资约140亿美元，对AI和数据中心进行战略投资</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">韩国政府宣布计划向主权财富基金注入20万亿韩元（约139亿美元），用于对人工智能、数据中心和基础设施进行战略投资。韩国政府将设立战略投资账户，资金来源包括政策性银行等公共机构，旨在吸引外国资本并把握AI发展机遇，提升国家竞争力。</p>
+          <div class="acc-footer"><span class="acc-tag">韩国</span><a href="https://36kr.com/newsflashes/3918947862392452?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">特斯拉正式引入豆包大模型</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">特斯拉中国公布2026.14.13版本车机软件更新，覆盖多款车型，主要升级内容为“豆包大模型”智能语音助手。该功能提供实时信息和自然对话，需开通高级车载娱乐服务，标志着特斯拉在中国市场进一步本土化合作。</p>
+          <div class="acc-footer"><span class="acc-tag">中国</span><a href="https://36kr.com/newsflashes/3918967223266692?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">乐道L90上市一周年累计交付超6万台</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">乐道L90上市一周年，累计交付突破60000台，显示出该车型在新能源汽车市场的良好表现。这一里程碑标志着乐道品牌在竞争激烈的市场中站稳脚跟，也反映了消费者对国产智能电动汽车的认可度在提升。</p>
+          <div class="acc-footer"><span class="acc-tag">中国</span><a href="https://36kr.com/newsflashes/3919007028555392?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-3">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📜</span><h2>政策动态</h2></div>
+        <span class="sec-badge">5 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">国家发改委：下半年物价有望保持平稳运行</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅表示，今年上半年我国物价总水平持续回升，对企业利润、财政收入、居民就业和增收产生积极推动作用。展望下半年，随着人工智能等新兴产业发展、产能调控加强、服务消费释放，物价有望保持平稳运行，为经济健康发展提供保障。</p>
+          <div class="acc-footer"><span class="acc-tag">国家发展改革委</span><a href="https://36kr.com/newsflashes/3918979605409159?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">国家发改委：人工智能成为经济增长的澎湃动力源</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅指出，上半年我国人工智能自主创新步伐加快，算力底座夯实，首个全国产10万卡超集群投用，智能算力规模达去年同期的2.8倍。国产大模型全球下载量突破100亿次，算力、模型、数据互促循环加速形成，相关行业保持30%以上高增长，成为经济增长新引擎。</p>
+          <div class="acc-footer"><span class="acc-tag">国家发展改革委</span><a href="https://36kr.com/newsflashes/3918974988430980?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">国家发改委：正在会同有关部门抓紧研究制定扩大内需战略实施方案（2026-2030年）</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委国民经济综合司副司长周宏伟表示，近期正在会同有关部门抓紧研究制定扩大内需战略实施方案（2026-2030年）。下一步将以更大力度、更实举措有效扩大国内需求，此举旨在应对外部不确定性，为经济增长提供持续动力，预计将出台更多消费和投资刺激政策。</p>
+          <div class="acc-footer"><span class="acc-tag">国家发展改革委</span><a href="https://36kr.com/newsflashes/3918960265620873?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">国家发改委：'十五五'时期算力网建设将新增直接投资4万亿元</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅表示，有关机构测算“十五五”时期算力网建设将新增直接投资4万亿元，考虑到算力建设以企业投资为主，这将为民间投资创造巨大空间。发改委将加强规划引导、要素保障等工作，为民间投资营造良好环境，推动数字经济发展。</p>
+          <div class="acc-footer"><span class="acc-tag">国家发展改革委</span><a href="https://36kr.com/newsflashes/3918951167651461?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">安徽：深化人工智能、物联网等技术应用，发展智慧供应链</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">安徽省人民政府办公厅印发《安徽省加快数智供应链发展行动方案（2026—2028年）》，提出引导龙头企业建设智能工厂，深化人工智能、物联网等技术应用，发展智慧供应链。此举旨在推动制造业数智化改造，促进产业链协同发展，增强供应链韧性，为全国智慧供应链建设提供范例。</p>
+          <div class="acc-footer"><span class="acc-tag">安徽省人民政府</span><a href="https://36kr.com/newsflashes/3919004611407488?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-4">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📈</span><h2>股市行情</h2></div>
+        <span class="sec-badge">4 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">A股三大指数午间休盘集体上涨，卓易信息涨超19%</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">A股午间休盘，沪指涨0.76%，深成指涨3.16%，创业板指涨5.04%，互联网、软件、通信设备板块领涨。宏景科技涨停，卓易信息涨超19%，联特科技涨超11%；银行、保险、电信板块跌幅居前，农业银行跌超4%。市场呈现科技股强、金融股弱的格局。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3918999933136518?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">恒指午间休盘跌0.11%，恒生科技指数涨0.7%</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">恒指午间休盘微跌0.11%，恒生科技指数涨0.7%，半导体、硬件设备、机械板块领涨，兆易创新涨超14%，潍柴动力涨超7%；食品饮料、石油石化、电信服务板块跌幅居前。南向资金净买入24.59亿港元，显示内地资金持续流入港股。</p>
+          <div class="acc-footer"><span class="acc-tag">港股</span><a href="https://36kr.com/newsflashes/3919028261907846?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">半日主力资金加仓电子、计算机股</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">主力资金早间净流入电子、计算机、传媒、机械设备、通信、有色金属、电力设备等板块，净流出银行板块。个股方面，兆易创新、东山精密、蓝色光标获净流入53.16亿元、45.90亿元、30.63亿元；净流出方面，C长鑫、国瓷材料、宁德时代遭抛售，显示资金调仓换股迹象。</p>
+          <div class="acc-footer"><span class="acc-tag">A股</span><a href="https://36kr.com/newsflashes/3919008618851715?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">美股三大指数集体收涨，微软创近18年以来最大单日涨幅</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">美股三大指数集体收涨，微软创近18年以来最大单日涨幅，显示市场对科技股的强劲信心。此次上涨可能受到企业财报超预期和AI投资热潮的推动，但需警惕市场高位回调的风险。</p>
+          <div class="acc-footer"><span class="acc-tag">美股</span><a href="https://36kr.com/newsflashes/3918776472022402?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-5">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">📊</span><h2>宏观经济</h2></div>
+        <span class="sec-badge">3 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">机构：2026年第二季度全球智能手机出货量同比下降6%</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">根据Omdia数据，2026年第二季度全球智能手机出货量同比下降6%至2.72亿部。此前第一季度受提前备货需求带动表现较强，第二季度进入存储器成本调整阶段，存储价格高企扰乱供应，推高元器件成本，迫使厂商调整定价和产品策略，市场前景仍面临不确定性。</p>
+          <div class="acc-footer"><span class="acc-tag">全球智能手机出货量</span><a href="https://36kr.com/newsflashes/3919030071029378?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">国家发改委：下半年物价有望保持平稳运行</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅表示，今年上半年我国物价总水平持续回升，对企业利润、财政收入、居民就业和增收产生积极推动作用。展望下半年，随着人工智能等新兴产业发展、产能调控加强、服务消费释放，物价有望保持平稳运行，为经济健康发展提供保障。</p>
+          <div class="acc-footer"><span class="acc-tag">物价水平</span><a href="https://36kr.com/newsflashes/3918979605409159?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">国家发改委：'十五五'时期算力网建设将新增直接投资4万亿元</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发展改革委政策研究室主任蒋毅表示，有关机构测算“十五五”时期算力网建设将新增直接投资4万亿元，考虑到算力建设以企业投资为主，这将为民间投资创造巨大空间。发改委将加强规划引导、要素保障等工作，为民间投资营造良好环境，推动数字经济发展。</p>
+          <div class="acc-footer"><span class="acc-tag">算力网直接投资</span><a href="https://36kr.com/newsflashes/3918951167651461?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+    <section class="section" id="sec-6">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">🥇</span><h2>大宗商品</h2></div>
+        <span class="sec-badge">0 条</span>
+      </div>
+      <div class="empty">· 暂无相关内容 ·</div>
+    </section>
+    <section class="section" id="sec-7">
+      <div class="sec-header">
+        <div class="sec-header-left"><span class="sec-icon">💡</span><h2>投资机会</h2></div>
+        <span class="sec-badge">5 条</span>
+      </div>
+      
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">01</span>
+          <span class="acc-text">AI算力产业链投资机会凸显</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发改委称“十五五”时期算力网建设将新增直接投资4万亿元，叠加人工智能相关行业保持30%以上高增长，算力产业链景气度确定性高。投资者可关注算力芯片、服务器、数据中心等细分方向，但需警惕高估值风险，建议逢低布局龙头公司。</p>
+          <div class="acc-footer"><span class="acc-tag">AI算力</span><a href="https://36kr.com/newsflashes/3918951167651461?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">02</span>
+          <span class="acc-text">智能机器人产业高速发展，关注相关标的</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">发改委表示全球每销售10台人形和四足智能机器人就有8台来自中国，显示中国智能机器人产业全球领先。随着技术进步和成本下降，智能机器人应用场景持续拓展，相关上市公司有望受益。投资者可关注机器视觉、核心零部件等环节，但需注意行业竞争加剧风险。</p>
+          <div class="acc-footer"><span class="acc-tag">智能机器人</span><a href="https://36kr.com/newsflashes/3918969487666562?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">03</span>
+          <span class="acc-text">扩大内需战略实施方案酝酿，消费股或迎政策红利</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">国家发改委正在研究制定扩大内需战略实施方案（2026-2030年），未来可能出台促消费、扩投资政策。消费板块有望受益，特别是服务消费、新型消费等领域。投资者可关注政策预期催化的机会，但需注意政策落地节奏和效果。</p>
+          <div class="acc-footer"><span class="acc-tag">扩大内需</span><a href="https://36kr.com/newsflashes/3918960265620873?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">04</span>
+          <span class="acc-text">车机AI化趋势明确，关注智能座舱相关公司</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">特斯拉中国正式引入豆包大模型，提升车机智能语音助手体验，显示车机AI化趋势加速。国内厂商也在布局智能座舱，相关产业链公司有望受益。投资者可关注汽车电子、语音交互等方向，但需注意技术迭代和市场接受度。</p>
+          <div class="acc-footer"><span class="acc-tag">智能汽车</span><a href="https://36kr.com/newsflashes/3918967223266692?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+      <details class="acc-item">
+        <summary class="acc-title">
+          <span class="acc-index">05</span>
+          <span class="acc-text">韩国主权基金注入AI领域，关注全球AI投资热潮</span>
+          <span class="acc-arrow">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="acc-body">
+          <p class="acc-summary">韩国政府计划向主权财富基金注资140亿美元用于AI和数据中心投资，显示全球政府正加大对AI的扶持力度。这有助于提升AI产业整体景气度，并带动相关上游资源需求。投资者可关注AI基础设施领域的投资机会，但需注意全球政策变化。</p>
+          <div class="acc-footer"><span class="acc-tag">AI投资</span><a href="https://36kr.com/newsflashes/3918947862392452?f=rss" target="_blank" rel="noopener" class="acc-source-link">
+           <svg width="12" height="12" viewBox="0 0 16 16" fill="none" style="vertical-align:-1px;margin-right:4px">
+             <path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"
+               stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>查看原文</a></div>
+        </div>
+      </details>
+    </section>
+  </main>
+</div>
+<footer>
+  <div class="footer-left">每日财经政经播报 · 2026-07-31 · 星期五</div>
+  <div class="footer-right">Powered by DeepSeek</div>
+</footer>
+</body>
+</html>
